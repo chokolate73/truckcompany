@@ -1,4 +1,7 @@
+"use client";
+
 import { Truck } from "lucide-react";
+import { motion } from "framer-motion";
 
 const quickLinks = [
   { href: "#about", label: "About Us" },
@@ -60,7 +63,13 @@ const socials = [
 
 export default function Footer() {
   return (
-    <footer className="bg-navy-900 text-navy-200 pt-16 pb-8">
+    <motion.footer
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, amount: 0.1 }}
+      transition={{ duration: 0.8 }}
+      className="bg-navy-900 text-navy-200 pt-16 pb-8"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
           {/* Brand */}
@@ -84,14 +93,15 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               {socials.map((s) => (
-                <a
+                <motion.a
                   key={s.label}
                   href="#"
                   aria-label={s.label}
+                  whileHover={{ y: -3, transition: { duration: 0.15 } }}
                   className="w-8 h-8 bg-white/10 hover:bg-orange/70 rounded-lg flex items-center justify-center transition-colors"
                 >
                   <s.Icon className="w-4 h-4 text-white" />
-                </a>
+                </motion.a>
               ))}
             </div>
           </div>
@@ -106,7 +116,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="font-inter text-navy-300 text-sm hover:text-orange transition-colors"
+                    className="font-inter text-navy-300 text-sm hover:text-orange hover:translate-x-1 inline-block transition-all"
                   >
                     {link.label}
                   </a>
@@ -168,6 +178,6 @@ export default function Footer() {
           </p>
         </div>
       </div>
-    </footer>
+    </motion.footer>
   );
 }

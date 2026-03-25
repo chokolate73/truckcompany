@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
   title: "D&V Services Portal",
@@ -28,7 +29,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-inter">{children}</body>
+      <body className="font-inter">
+        {children}
+        <BackToTop />
+      </body>
     </html>
   );
 }
