@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Truck, Menu, X } from "lucide-react";
 
 const navLinks = [
@@ -13,13 +14,29 @@ const navLinks = [
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy-900/95">
+    <motion.header
+      initial={{ y: -80 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-navy-900/95 backdrop-blur-md shadow-lg shadow-black/10"
+          : "bg-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          <a href="#" className="flex items-center gap-2.5">
-            <div className="w-9 h-9 bg-orange rounded-lg flex items-center justify-center">
+          <a href="#" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 bg-orange rounded-lg flex items-center justify-center group-hover:animate-pulse-glow transition-all">
               <Truck className="w-5 h-5 text-white" />
             </div>
             <div className="flex flex-col leading-none">
@@ -37,14 +54,15 @@ export default function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="font-inter text-sm font-medium text-navy-100 hover:text-orange px-4 py-2 rounded-md transition-colors"
+                className="relative font-inter text-sm font-medium text-navy-100 hover:text-orange px-4 py-2 rounded-md transition-colors group"
               >
                 {link.label}
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-orange transition-all duration-300 group-hover:w-4/5 rounded-full" />
               </a>
             ))}
             <a
               href="#contact"
-              className="ml-3 bg-orange hover:bg-orange-600 text-white font-manrope font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors"
+              className="ml-3 bg-orange hover:bg-orange-600 text-white font-manrope font-semibold text-sm px-5 py-2.5 rounded-lg transition-all hover:shadow-lg hover:shadow-orange/25 hover:-translate-y-0.5"
             >
               Apply to Drive
             </a>
@@ -55,32 +73,70 @@ export default function Header() {
             aria-label="Toggle menu"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
-            {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            <AnimatePresence mode="wait">
+              {mobileOpen ? (
+                <motion.div
+                  key="x"
+                  initial={{ rotate: -90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: 90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <X className="w-6 h-6" />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="menu"
+                  initial={{ rotate: 90, opacity: 0 }}
+                  animate={{ rotate: 0, opacity: 1 }}
+                  exit={{ rotate: -90, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Menu className="w-6 h-6" />
+                </motion.div>
+              )}
+            </AnimatePresence>
           </button>
         </div>
       </div>
 
-      {mobileOpen && (
-        <div className="md:hidden bg-navy-900/95 border-t border-white/10 px-4 pb-4">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="block font-inter text-sm font-medium text-navy-100 hover:text-orange px-4 py-2 rounded-md transition-colors"
-              onClick={() => setMobileOpen(false)}
-            >
-              {link.label}
-            </a>
-          ))}
-          <a
-            href="#contact"
-            className="block mt-2 bg-orange hover:bg-orange-600 text-white font-manrope font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors text-center"
-            onClick={() => setMobileOpen(false)}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="md:hidden overflow-hidden bg-navy-900/95 backdrop-blur-md border-t border-white/10"
           >
-            Apply to Drive
-          </a>
-        </div>
-      )}
-    </header>
+            <div className="px-4 pb-4 pt-2">
+              {navLinks.map((link, i) => (
+                <motion.a
+                  key={link.href}
+                  href={link.href}
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.05 }}
+                  className="block font-inter text-sm font-medium text-navy-100 hover:text-orange px-4 py-2.5 rounded-md transition-colors"
+                  onClick={() => setMobileOpen(false)}
+                >
+                  {link.label}
+                </motion.a>
+              ))}
+              <motion.a
+                href="#contact"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+                className="block mt-2 bg-orange hover:bg-orange-600 text-white font-manrope font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors text-center"
+                onClick={() => setMobileOpen(false)}
+              >
+                Apply to Drive
+              </motion.a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }
