@@ -55,13 +55,13 @@ export default function WhyUs() {
           {items.map((item, i) => (
             <StaggerItem key={item.num} variant="fade-up">
               <div className={`py-10 ${i < 2 ? "sm:border-b sm:border-white/[0.06]" : ""}`}>
-                <span className="font-manrope font-extrabold text-5xl lg:text-6xl text-white/[0.08] leading-none select-none">
+                <span className="font-manrope font-extrabold text-6xl lg:text-8xl text-accent/15 leading-none select-none">
                   {item.num}
                 </span>
-                <h3 className="font-manrope font-bold text-white text-xl lg:text-2xl -mt-4 lg:-mt-5 mb-3">
+                <h3 className="font-manrope font-bold text-white text-2xl lg:text-3xl -mt-5 lg:-mt-7 mb-3">
                   {item.title}
                 </h3>
-                <p className="font-inter text-text-white-muted text-sm lg:text-base leading-relaxed max-w-md">
+                <p className="font-inter text-text-white-muted text-base lg:text-lg leading-relaxed max-w-md">
                   {item.text}
                 </p>
               </div>
