@@ -2,7 +2,6 @@
 
 import { CircleCheckBig } from "lucide-react";
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "./AnimateOnScroll";
-import AnimatedCounter from "./AnimatedCounter";
 
 const checkpoints = [
   "Reliability you can count on — every load, every lane.",
@@ -13,7 +12,7 @@ const checkpoints = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-bg-light py-24 lg:py-32">
+    <section id="about" className="bg-bg-light py-24 lg:py-32 pb-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <AnimateOnScroll variant="fade-left" duration={0.7}>
@@ -52,47 +51,43 @@ export default function About() {
 
           <AnimateOnScroll variant="fade-right" duration={0.7} delay={0.2}>
             <div className="relative">
-              <div
-                className="rounded-2xl overflow-hidden aspect-[4/3] bg-cover bg-center"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #0F1D3A 0%, #1B2A4A 100%)",
-                }}
-              >
-                <div className="absolute inset-0 flex flex-col items-center justify-center text-white p-10">
-                  <div className="text-center mb-10">
-                    <p className="font-inter text-text-white-muted text-sm uppercase tracking-widest mb-2">
-                      Est.
-                    </p>
-                    <p className="font-manrope font-extrabold text-8xl text-white leading-none">
-                      <AnimatedCounter target={2016} duration={2000} />
-                    </p>
-                    <p className="font-inter text-text-white-muted text-lg mt-3">
-                      Gurnee, Illinois
-                    </p>
+              {/* Main fleet image */}
+              <div className="rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src="/images/about-fleet.png"
+                  alt="D&V Services fleet of trucks"
+                  className="w-full h-auto object-cover aspect-[4/3]"
+                  loading="lazy"
+                  onError={(e) => {
+                    const target = e.currentTarget;
+                    target.style.display = "none";
+                    target.parentElement!.style.background =
+                      "linear-gradient(135deg, #0F1D3A 0%, #1B2A4A 100%)";
+                    target.parentElement!.classList.add("aspect-[4/3]");
+                  }}
+                />
+              </div>
+
+              {/* Orange accent decoration — bottom right */}
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/15 rounded-2xl -z-10" />
+
+              {/* Small stats badge overlaying the bottom of the image */}
+              <div className="absolute -bottom-6 left-6 right-6 bg-white rounded-xl shadow-lg p-4 border border-border-light">
+                <div className="grid grid-cols-3 gap-4 text-center">
+                  <div>
+                    <p className="font-manrope font-extrabold text-accent text-2xl">2016</p>
+                    <p className="font-inter text-text-muted text-xs">Established</p>
                   </div>
-                  <div className="w-full border-t border-border-dark pt-8 grid grid-cols-2 gap-6 text-center">
-                    <div>
-                      <p className="font-manrope font-extrabold text-accent text-4xl">
-                        <AnimatedCounter target={48} duration={1500} />
-                      </p>
-                      <p className="font-inter text-text-white-muted text-sm mt-1">
-                        States Covered
-                      </p>
-                    </div>
-                    <div>
-                      <p className="font-manrope font-extrabold text-accent text-4xl">
-                        <AnimatedCounter target={4} duration={1000} />
-                      </p>
-                      <p className="font-inter text-text-white-muted text-sm mt-1">
-                        Service Types
-                      </p>
-                    </div>
+                  <div className="border-x border-border-light">
+                    <p className="font-manrope font-extrabold text-accent text-2xl">48</p>
+                    <p className="font-inter text-text-muted text-xs">States</p>
+                  </div>
+                  <div>
+                    <p className="font-manrope font-extrabold text-accent text-2xl">4</p>
+                    <p className="font-inter text-text-muted text-xs">Services</p>
                   </div>
                 </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-accent-soft rounded-2xl -z-10" />
-              <div className="absolute -top-4 -left-4 w-20 h-20 bg-bg-alt rounded-xl -z-10" />
             </div>
           </AnimateOnScroll>
         </div>
