@@ -19,17 +19,17 @@ export default function About() {
             <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
               About D&V Services
             </span>
-            <h2 className="font-manrope font-extrabold text-text-dark text-4xl lg:text-6xl leading-tight mt-3 mb-6">
+            <h2 className="font-manrope font-extrabold text-text-dark text-3xl sm:text-4xl lg:text-6xl leading-tight mt-3 mb-6">
               Built on Trust. <br />
               Driven by Results.
             </h2>
-            <p className="font-inter text-text-muted text-lg lg:text-xl leading-relaxed mb-5">
+            <p className="font-inter text-text-muted text-base lg:text-xl leading-relaxed mb-5">
               Founded in 2016 in Gurnee, Illinois, D&V Services Inc. was built
               on a simple premise: freight should move on time, every time. What
               started as a local operation has grown into a nationwide carrier
               serving all 48 contiguous US states.
             </p>
-            <p className="font-inter text-text-muted text-lg lg:text-xl leading-relaxed mb-8">
+            <p className="font-inter text-text-muted text-base lg:text-xl leading-relaxed mb-8">
               We serve shippers, freight brokers, and direct clients who need a
               reliable partner — one that answers the phone, keeps its
               commitments, and operates with the highest safety standards in the
