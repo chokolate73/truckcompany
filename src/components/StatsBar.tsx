@@ -12,7 +12,7 @@ const stats = [
 export default function StatsBar() {
   return (
     <section
-      className="relative py-8 lg:py-12 border-t border-b border-white/10"
+      className="relative py-8 lg:py-12 border-t border-white/10"
       style={{
         background: "linear-gradient(135deg, #0F1D3A 0%, #1B2A4A 100%)",
       }}
@@ -33,6 +33,21 @@ export default function StatsBar() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Wave transition to About (white) */}
+      <div className="absolute bottom-0 left-0 right-0 translate-y-[1px]">
+        <svg
+          viewBox="0 0 1440 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full block"
+        >
+          <path
+            d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"
+            fill="white"
+          />
+        </svg>
       </div>
     </section>
   );
