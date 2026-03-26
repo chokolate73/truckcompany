@@ -81,12 +81,80 @@ html {
   display: none;
 }
 
-/* Animated dashed route lines on coverage map */
-@keyframes dash-move {
-  to { stroke-dashoffset: -20; }
+/* Coverage radar animations */
+@keyframes radar-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.12; }
+  50% { transform: scale(1.06); opacity: 0.06; }
 }
 
-.route-line {
-  stroke-dasharray: 6 4;
-  animation: dash-move 1.5s linear infinite;
+.animate-radar-pulse {
+  animation: radar-pulse 3s ease-in-out infinite;
+}
+
+/* Rings scale in from center */
+@keyframes ring-in {
+  from { transform: scale(0.6); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.animate-ring-in {
+  animation: ring-in 0.6s ease-out both;
+}
+
+.ring-delay-1 { animation-delay: 0.1s; }
+.ring-delay-2 { animation-delay: 0.25s; }
+.ring-delay-3 { animation-delay: 0.4s; }
+.ring-delay-4 { animation-delay: 0.55s; }
+
+/* Hub pops in */
+@keyframes hub-in {
+  0% { transform: scale(0); opacity: 0; }
+  60% { transform: scale(1.15); opacity: 1; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.animate-hub-in {
+  animation: hub-in 0.5s ease-out 0.6s both;
+}
+
+/* Route lines draw from hub */
+@keyframes route-draw {
+  from { stroke-dashoffset: 20; opacity: 0; }
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
+
+.animate-route-draw {
+  animation: route-draw 0.6s ease-out both;
+}
+
+/* Cities fade in + slide up */
+@keyframes city-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-city-in {
+  animation: city-in 0.4s ease-out both;
+}
+
+/* Subtle dot pulse (continuous) */
+@keyframes dot-pulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.4); }
+  50% { transform: scale(1.3); box-shadow: 0 0 6px 2px rgba(255, 107, 0, 0.15); }
+}
+
+.animate-dot-pulse {
+  animation: dot-pulse 2.5s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-radar-pulse,
+  .animate-ring-in,
+  .animate-hub-in,
+  .animate-route-draw,
+  .animate-city-in,
+  .animate-dot-pulse {
+    animation: none;
+    opacity: 1;
+  }
 }

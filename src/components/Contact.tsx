@@ -1,7 +1,6 @@
 "use client";
 
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { motion } from "framer-motion";
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "./AnimateOnScroll";
 
 const contactCards = [
@@ -50,74 +49,45 @@ export default function Contact() {
           </p>
         </AnimateOnScroll>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
-          {/* Left: contact cards + careers banner */}
-          <div className="space-y-5">
-            <StaggerContainer
-              className="grid sm:grid-cols-2 gap-5"
-              staggerDelay={0.1}
-            >
-              {contactCards.map((card) => (
-                <StaggerItem key={card.label} variant="fade-up">
-                  <motion.div
-                    whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                    className="bg-white rounded-2xl p-7 border border-border-light hover:border-accent/30 hover:shadow-lg transition-all h-full"
-                    style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }}
-                  >
-                    <div className="w-11 h-11 bg-accent-soft rounded-xl flex items-center justify-center mb-4">
-                      <card.icon
-                        className="w-5 h-5 text-accent"
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                    <p className="font-inter text-text-muted text-xs uppercase tracking-widest mb-1">
+        <div className="grid lg:grid-cols-[380px_1fr] gap-10 lg:gap-12 items-center">
+          {/* Left: contact cards stacked vertically */}
+          <StaggerContainer
+            className="flex flex-col gap-4"
+            staggerDelay={0.1}
+          >
+            {contactCards.map((card) => (
+              <StaggerItem key={card.label} variant="fade-up">
+                <div className="bg-white rounded-xl px-5 py-4 border border-border-light hover:border-accent/30 hover:shadow-md transition-all flex items-center gap-4">
+                  <div className="w-11 h-11 bg-accent-soft rounded-xl flex items-center justify-center shrink-0">
+                    <card.icon
+                      className="w-5 h-5 text-accent"
+                      strokeWidth={1.5}
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-inter text-text-muted text-xs uppercase tracking-widest mb-0.5">
                       {card.label}
                     </p>
                     {card.href ? (
                       <a
                         href={card.href}
-                        className="font-manrope font-bold text-text-dark text-lg hover:text-accent transition-colors block"
+                        className="font-manrope font-bold text-text-dark text-sm hover:text-accent transition-colors block truncate"
                       >
                         {card.value}
                       </a>
                     ) : (
-                      <p className="font-manrope font-bold text-text-dark text-lg">
+                      <p className="font-manrope font-bold text-text-dark text-sm">
                         {card.value}
                       </p>
                     )}
-                    <p className="font-inter text-text-muted text-sm mt-1">
+                    <p className="font-inter text-text-muted text-xs mt-0.5">
                       {card.sub}
                     </p>
-                  </motion.div>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-
-            {/* CDL Careers Banner */}
-            <AnimateOnScroll variant="fade-up" delay={0.3}>
-              <motion.div
-                whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
-                className="bg-accent rounded-2xl p-7 shadow-lg shadow-accent/20"
-              >
-                <p className="font-manrope font-bold text-white text-xl mb-2">
-                  CDL Drivers — Join Our Team
-                </p>
-                <p className="font-inter text-white/85 text-sm mb-3">
-                  Competitive Pay &bull; Consistent Home Time &bull; Safety-First
-                  Culture &bull; Modern Equipment
-                </p>
-                <p className="font-inter text-white/70 text-xs mb-4">
-                  Class A CDL required. 2+ years experience preferred.
-                </p>
-                <a
-                  href="mailto:dvservices.safety@gmail.com?subject=CDL Driver Application"
-                  className="inline-block bg-white hover:bg-white/90 text-accent font-manrope font-bold text-sm px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5"
-                >
-                  Apply to Drive
-                </a>
-              </motion.div>
-            </AnimateOnScroll>
-          </div>
+                  </div>
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
 
           {/* Right: contact form */}
           <AnimateOnScroll variant="fade-right" delay={0.2} duration={0.7}>
