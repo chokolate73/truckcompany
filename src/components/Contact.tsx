@@ -92,31 +92,6 @@ export default function Contact() {
                 </StaggerItem>
               ))}
             </StaggerContainer>
-
-            {/* CDL Careers Banner */}
-            <AnimateOnScroll variant="fade-up" delay={0.3}>
-              <motion.div
-                whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
-                className="bg-accent rounded-2xl p-7 shadow-lg shadow-accent/20"
-              >
-                <p className="font-manrope font-bold text-white text-xl mb-2">
-                  CDL Drivers — Join Our Team
-                </p>
-                <p className="font-inter text-white/85 text-sm mb-3">
-                  Competitive Pay &bull; Consistent Home Time &bull; Safety-First
-                  Culture &bull; Modern Equipment
-                </p>
-                <p className="font-inter text-white/70 text-xs mb-4">
-                  Class A CDL required. 2+ years experience preferred.
-                </p>
-                <a
-                  href="mailto:dvservices.safety@gmail.com?subject=CDL Driver Application"
-                  className="inline-block bg-white hover:bg-white/90 text-accent font-manrope font-bold text-sm px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5"
-                >
-                  Apply to Drive
-                </a>
-              </motion.div>
-            </AnimateOnScroll>
           </div>
 
           {/* Right: contact form */}
