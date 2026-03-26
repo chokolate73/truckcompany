@@ -141,25 +141,7 @@ export default function Services() {
             key={service.id}
             className="bg-white rounded-2xl border border-border-light shadow-sm overflow-hidden animate-fade-in"
           >
-            {/* Service image / fallback */}
-            <div
-              className="h-[200px] lg:h-[300px] relative"
-              style={{ backgroundColor: "#0F1D3A" }}
-            >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Icon className="w-20 h-20 text-accent/20" />
-              </div>
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%)",
-                }}
-              />
-            </div>
-
-            {/* Content */}
-            <div className="px-6 lg:px-8 pb-8 -mt-8 relative">
+            <div className="px-6 lg:px-8 pt-8 pb-8">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
                   <Icon className="w-6 h-6 text-accent" />
@@ -192,6 +174,7 @@ export default function Services() {
               </a>
             </div>
           </div>
+
         </div>
       </div>
     </section>
