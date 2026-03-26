@@ -1,26 +1,25 @@
 "use client";
 
-import { ShieldCheck, PhoneCall, Route, HeartHandshake } from "lucide-react";
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "./AnimateOnScroll";
 
-const cards = [
+const items = [
   {
-    icon: ShieldCheck,
+    num: "01",
     title: "Zero-Excuse Reliability",
     text: "We don\u2019t make excuses \u2014 we make deliveries. Our on-time commitment means your freight arrives when promised, every single load.",
   },
   {
-    icon: PhoneCall,
+    num: "02",
     title: "Real Humans, Real Answers",
     text: "No automated phone trees. When you call D&V, you get a real dispatcher who knows your load and can give you an instant update.",
   },
   {
-    icon: Route,
+    num: "03",
     title: "Flexible Lane Coverage",
     text: "From dedicated Midwest corridors to coast-to-coast runs, we build solutions around your shipping needs \u2014 not the other way around.",
   },
   {
-    icon: HeartHandshake,
+    num: "04",
     title: "Partnership, Not Transactions",
     text: "We treat every shipper and broker like a long-term partner. That\u2019s why our clients stay with us year after year.",
   },
@@ -50,20 +49,20 @@ export default function WhyUs() {
         </AnimateOnScroll>
 
         <StaggerContainer
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid sm:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-0 divide-y divide-white/[0.06] sm:divide-y-0"
           staggerDelay={0.12}
         >
-          {cards.map((card) => (
-            <StaggerItem key={card.title} variant="fade-up">
-              <div className="group rounded-2xl p-8 border border-white/10 bg-white/[0.06] hover:bg-white/[0.10] hover:border-accent/30 transition-all duration-300 h-full">
-                <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
-                  <card.icon className="w-7 h-7 text-accent" />
-                </div>
-                <h3 className="font-manrope font-bold text-white text-xl lg:text-2xl mb-2">
-                  {card.title}
+          {items.map((item, i) => (
+            <StaggerItem key={item.num} variant="fade-up">
+              <div className={`py-10 ${i < 2 ? "sm:border-b sm:border-white/[0.06]" : ""}`}>
+                <span className="font-manrope font-extrabold text-5xl lg:text-6xl text-white/[0.08] leading-none select-none">
+                  {item.num}
+                </span>
+                <h3 className="font-manrope font-bold text-white text-xl lg:text-2xl -mt-4 lg:-mt-5 mb-3">
+                  {item.title}
                 </h3>
-                <p className="font-inter text-text-white-muted text-sm lg:text-base leading-relaxed">
-                  {card.text}
+                <p className="font-inter text-text-white-muted text-sm lg:text-base leading-relaxed max-w-md">
+                  {item.text}
                 </p>
               </div>
             </StaggerItem>
