@@ -1,80 +1,70 @@
 "use client";
 
-import { CalendarCheck, Map, Headphones, ShieldCheck } from "lucide-react";
-import { motion } from "framer-motion";
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "./AnimateOnScroll";
 
-const cards = [
+const items = [
   {
-    icon: CalendarCheck,
-    stat: "Since 2016",
-    label: "Years of Experience",
-    text: "Nearly a decade of reliable freight operations. We know the roads, lanes, and what it takes to deliver on time.",
+    num: "01",
+    title: "Zero-Excuse Reliability",
+    text: "We don\u2019t make excuses \u2014 we make deliveries. Our on-time commitment means your freight arrives when promised, every single load.",
   },
   {
-    icon: Map,
-    stat: "48 States",
-    label: "Nationwide Coverage",
-    text: "Full continental US coverage. Whether it's coast-to-coast or regional, we have the network to get it done.",
+    num: "02",
+    title: "Real Humans, Real Answers",
+    text: "No automated phone trees. When you call D&V, you get a real dispatcher who knows your load and can give you an instant update.",
   },
   {
-    icon: Headphones,
-    stat: "24/7",
-    label: "Dispatch Support",
-    text: "Our dispatch team is available around the clock. Real people, real answers — any hour of the day or night.",
+    num: "03",
+    title: "Flexible Lane Coverage",
+    text: "From dedicated Midwest corridors to coast-to-coast runs, we build solutions around your shipping needs \u2014 not the other way around.",
   },
   {
-    icon: ShieldCheck,
-    stat: "Safety First",
-    label: "Compliance & Safety",
-    text: "Rigorous driver vetting, DOT compliance, and ongoing safety training keep every load — and every driver — protected.",
+    num: "04",
+    title: "Partnership, Not Transactions",
+    text: "We treat every shipper and broker like a long-term partner. That\u2019s why our clients stay with us year after year.",
   },
 ];
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="bg-bg-alt py-24 lg:py-32">
+    <section
+      id="why-us"
+      className="py-20 lg:py-24"
+      style={{
+        background: "linear-gradient(135deg, #0F1D3A 0%, #1B2A4A 100%)",
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll className="text-center mb-16">
           <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
             Why D&V Services
           </span>
-          <h2 className="font-manrope font-extrabold text-text-dark text-4xl lg:text-5xl mt-3">
+          <h2 className="font-manrope font-extrabold text-white text-4xl lg:text-5xl mt-3">
             The D&V Difference
           </h2>
-          <p className="font-inter text-text-muted text-lg mt-4 max-w-2xl mx-auto">
+          <p className="font-inter text-text-white-muted text-lg mt-4 max-w-2xl mx-auto">
             We&apos;re not just another carrier. We&apos;re a partner you can
             count on.
           </p>
         </AnimateOnScroll>
 
         <StaggerContainer
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid sm:grid-cols-2 gap-x-12 lg:gap-x-20 gap-y-0 divide-y divide-white/[0.06] sm:divide-y-0"
           staggerDelay={0.12}
         >
-          {cards.map((card) => (
-            <StaggerItem key={card.label} variant="fade-up">
-              <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="bg-white rounded-2xl p-8 border border-border-light hover:border-accent/30 hover:shadow-xl hover:shadow-black/5 transition-all group h-full"
-                style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }}
-              >
-                <div className="w-12 h-12 rounded-xl bg-accent-soft flex items-center justify-center mb-5 group-hover:bg-accent/15 transition-colors">
-                  <card.icon
-                    className="w-6 h-6 text-accent"
-                    strokeWidth={1.5}
-                  />
-                </div>
-                <p className="font-manrope font-extrabold text-text-dark text-4xl mb-1">
-                  {card.stat}
+          {items.map((item, i) => (
+            <StaggerItem key={item.num} variant="fade-up">
+              <div className={`py-10 ${i < 2 ? "sm:border-b sm:border-white/[0.06]" : ""}`}>
+                <span className="font-manrope font-extrabold text-6xl lg:text-8xl text-accent/15 leading-none select-none">
+                  {item.num}
+                </span>
+                <h3 className="font-manrope font-bold text-white text-2xl lg:text-3xl -mt-5 lg:-mt-7 mb-3">
+                  {item.title}
+                </h3>
+                <p className="font-inter text-text-white-muted text-base lg:text-lg leading-relaxed max-w-md">
+                  {item.text}
                 </p>
-                <p className="font-manrope font-bold text-text-muted text-sm uppercase tracking-wide mb-3">
-                  {card.label}
-                </p>
-                <p className="font-inter text-text-muted text-sm leading-relaxed">
-                  {card.text}
-                </p>
-              </motion.div>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
