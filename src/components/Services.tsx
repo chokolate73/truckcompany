@@ -92,7 +92,7 @@ export default function Services() {
           </p>
         </AnimateOnScroll>
 
-        <div className="grid lg:grid-cols-[280px_1fr] gap-6 lg:gap-10">
+        <div className="grid lg:grid-cols-[280px_1fr] gap-6 lg:gap-8 items-stretch">
           {/* Sidebar — horizontal on mobile, vertical on desktop */}
           <div className="flex lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide">
             {services.map((s, i) => {
@@ -102,10 +102,10 @@ export default function Services() {
                 <button
                   key={s.id}
                   onClick={() => setActiveIndex(i)}
-                  className={`flex items-center gap-3 px-5 py-4 rounded-xl text-left transition-all duration-300 shrink-0 ${
+                  className={`relative flex items-center gap-3 px-5 py-4 rounded-xl text-left transition-all duration-300 shrink-0 lg:flex-1 ${
                     isActive
-                      ? "bg-[#0F1D3A] text-white shadow-lg"
-                      : "bg-white text-text-dark border border-border-light hover:border-accent/30 hover:shadow-md"
+                      ? "bg-[#0F1D3A] text-white shadow-lg border-l-4 border-l-accent lg:border-l-4"
+                      : "bg-white text-text-dark border border-border-light shadow-sm hover:border-accent/30 hover:shadow-md"
                   }`}
                 >
                   <div
@@ -139,27 +139,9 @@ export default function Services() {
           {/* Right showcase panel */}
           <div
             key={service.id}
-            className="bg-white rounded-2xl border border-border-light shadow-sm overflow-hidden animate-fade-in"
+            className="bg-white rounded-2xl border border-border-light shadow-sm overflow-hidden animate-fade-in flex flex-col"
           >
-            {/* Service image / fallback */}
-            <div
-              className="h-[200px] lg:h-[300px] relative"
-              style={{ backgroundColor: "#0F1D3A" }}
-            >
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Icon className="w-20 h-20 text-accent/20" />
-              </div>
-              <div
-                className="absolute inset-0"
-                style={{
-                  background:
-                    "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%)",
-                }}
-              />
-            </div>
-
-            {/* Content */}
-            <div className="px-6 lg:px-8 pb-8 -mt-8 relative">
+            <div className="px-6 lg:px-8 pt-8 pb-8 flex flex-col flex-1">
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
                   <Icon className="w-6 h-6 text-accent" />
@@ -173,7 +155,7 @@ export default function Services() {
                 {service.description}
               </p>
 
-              <div className="grid sm:grid-cols-2 gap-3 mb-8">
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-8 flex-1">
                 {service.features.map((feature) => (
                   <div key={feature} className="flex items-center gap-2">
                     <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
@@ -186,7 +168,7 @@ export default function Services() {
 
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold px-8 py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold px-8 py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 self-start"
               >
                 Get a Quote <ArrowRight className="w-5 h-5" />
               </a>
