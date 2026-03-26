@@ -16,39 +16,49 @@ const fadeUp = {
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy"
-      style={{
-        background:
-          "linear-gradient(135deg, #0F1D3A 0%, #1B2A4A 50%, #1B2A4A 100%)",
-      }}
+      className="relative min-h-[85vh] lg:min-h-screen flex items-center overflow-hidden"
+      style={{ backgroundColor: "#0F1D3A" }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/40" />
+      {/* Background truck image */}
+      <div
+        className="absolute inset-0 bg-cover bg-no-repeat bg-[position:75%_30%] md:bg-center"
+        style={{ backgroundImage: "url('/images/hero-truck.jpg')" }}
+      />
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(5)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-accent/20 animate-float"
-            style={{
-              width: `${8 + i * 6}px`,
-              height: `${8 + i * 6}px`,
-              left: `${15 + i * 18}%`,
-              top: `${20 + (i % 3) * 25}%`,
-              animationDelay: `${i * 1.2}s`,
-              animationDuration: `${5 + i}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Left-to-right gradient overlay (desktop) — sharper transition */}
+      <div
+        className="absolute inset-0 hidden md:block"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(15,29,58,0.97) 0%, rgba(15,29,58,0.92) 20%, rgba(15,29,58,0.75) 40%, rgba(15,29,58,0.35) 60%, rgba(15,29,58,0.10) 80%, rgba(15,29,58,0.05) 100%)",
+        }}
+      />
+
+      {/* Top-to-bottom gradient overlay (mobile) — truck visible at top, dark below */}
+      <div
+        className="absolute inset-0 md:hidden"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(15,29,58,0.50) 0%, rgba(15,29,58,0.80) 30%, rgba(15,29,58,0.95) 50%, rgba(15,29,58,0.95) 100%)",
+        }}
+      />
+
+      {/* Subtle top/bottom gradient for navbar and wave transition */}
+      <div
+        className="absolute inset-0 hidden md:block"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(15,29,58,0.7) 0%, transparent 30%, transparent 80%, rgba(15,29,58,0.5) 100%)",
+        }}
+      />
 
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-32 lg:py-40"
+        className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-28 pb-16 lg:py-0"
       >
-        <div className="max-w-3xl">
+        <div className="max-w-xl lg:max-w-3xl xl:max-w-4xl">
           <motion.div
             variants={fadeUp}
             className="inline-flex items-center gap-2 bg-accent/15 border border-accent/30 text-accent font-inter font-semibold text-sm px-4 py-1.5 rounded-full mb-6"
@@ -59,7 +69,7 @@ export default function Hero() {
 
           <motion.h1
             variants={fadeUp}
-            className="font-manrope font-extrabold text-white text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6"
+            className="font-manrope font-extrabold text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.05] tracking-tight mb-6"
           >
             Moving America&apos;s
             <span className="block text-accent">Freight Forward.</span>
@@ -67,19 +77,19 @@ export default function Hero() {
 
           <motion.p
             variants={fadeUp}
-            className="font-inter text-text-white-muted text-xl lg:text-2xl leading-relaxed mb-10 max-w-2xl"
+            className="font-inter text-text-white-muted text-lg lg:text-2xl leading-relaxed mb-10 lg:mb-12 max-w-lg lg:max-w-2xl"
           >
             D&V Services Inc. delivers reliable FTL, LTL, Flatbed, and
             Refrigerated shipping across the continental United States. Trusted
             since 2016.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
-            <button className="group inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-14">
+            <button className="group inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold text-lg px-10 py-5 rounded-xl transition-all shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 w-full sm:w-auto">
               Apply to Drive
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </button>
-            <button className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-manrope font-semibold text-lg px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5">
+            <button className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-manrope font-semibold text-lg px-8 py-5 rounded-xl transition-all hover:-translate-y-0.5 w-full sm:w-auto">
               Our Services
             </button>
           </motion.div>
