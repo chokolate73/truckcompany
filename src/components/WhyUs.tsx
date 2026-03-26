@@ -28,16 +28,22 @@ const cards = [
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="bg-bg-alt py-20 lg:py-24">
+    <section
+      id="why-us"
+      className="py-20 lg:py-24"
+      style={{
+        background: "linear-gradient(135deg, #0F1D3A 0%, #1B2A4A 100%)",
+      }}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll className="text-center mb-16">
           <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
             Why D&V Services
           </span>
-          <h2 className="font-manrope font-extrabold text-text-dark text-4xl lg:text-5xl mt-3">
+          <h2 className="font-manrope font-extrabold text-white text-4xl lg:text-5xl mt-3">
             The D&V Difference
           </h2>
-          <p className="font-inter text-text-muted text-lg mt-4 max-w-2xl mx-auto">
+          <p className="font-inter text-text-white-muted text-lg mt-4 max-w-2xl mx-auto">
             We&apos;re not just another carrier. We&apos;re a partner you can
             count on.
           </p>
@@ -49,14 +55,14 @@ export default function WhyUs() {
         >
           {cards.map((card) => (
             <StaggerItem key={card.title} variant="fade-up">
-              <div className="group bg-white rounded-2xl p-8 border border-border-light shadow-md hover:shadow-xl hover:border-accent/30 hover:-translate-y-1 transition-all duration-300 h-full">
-                <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+              <div className="group rounded-2xl p-8 border border-white/10 bg-white/[0.06] hover:bg-white/[0.10] hover:border-accent/30 transition-all duration-300 h-full">
+                <div className="w-14 h-14 rounded-xl bg-white/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
                   <card.icon className="w-7 h-7 text-accent" />
                 </div>
-                <h3 className="font-manrope font-bold text-text-dark text-xl lg:text-2xl mb-2">
+                <h3 className="font-manrope font-bold text-white text-xl lg:text-2xl mb-2">
                   {card.title}
                 </h3>
-                <p className="font-inter text-text-muted text-sm lg:text-base leading-relaxed">
+                <p className="font-inter text-text-white-muted text-sm lg:text-base leading-relaxed">
                   {card.text}
                 </p>
               </div>
