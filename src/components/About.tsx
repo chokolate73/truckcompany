@@ -14,22 +14,22 @@ export default function About() {
   return (
     <section id="about" className="bg-bg-light pt-20 lg:pt-24 pb-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           <AnimateOnScroll variant="fade-left" duration={0.7}>
             <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
               About D&V Services
             </span>
-            <h2 className="font-manrope font-extrabold text-text-dark text-4xl lg:text-5xl leading-tight mt-3 mb-6">
+            <h2 className="font-manrope font-extrabold text-text-dark text-3xl sm:text-4xl lg:text-6xl leading-tight mt-3 mb-6">
               Built on Trust. <br />
               Driven by Results.
             </h2>
-            <p className="font-inter text-text-muted text-lg leading-relaxed mb-5">
+            <p className="font-inter text-text-muted text-base lg:text-xl leading-relaxed mb-5">
               Founded in 2016 in Gurnee, Illinois, D&V Services Inc. was built
               on a simple premise: freight should move on time, every time. What
               started as a local operation has grown into a nationwide carrier
               serving all 48 contiguous US states.
             </p>
-            <p className="font-inter text-text-muted text-lg leading-relaxed mb-8">
+            <p className="font-inter text-text-muted text-base lg:text-xl leading-relaxed mb-8">
               We serve shippers, freight brokers, and direct clients who need a
               reliable partner — one that answers the phone, keeps its
               commitments, and operates with the highest safety standards in the
@@ -40,7 +40,7 @@ export default function About() {
                 <StaggerItem key={text}>
                   <li className="flex items-start gap-3 list-none">
                     <CircleCheckBig className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                    <span className="font-inter text-text-dark text-base">
+                    <span className="font-inter text-text-dark text-base lg:text-lg">
                       {text}
                     </span>
                   </li>
@@ -56,7 +56,7 @@ export default function About() {
                 <img
                   src="/image/about-fleet.jpg"
                   alt="D&V Services fleet of trucks"
-                  className="w-full h-full object-cover min-h-[400px] lg:min-h-[500px]"
+                  className="w-full h-full object-cover min-h-[400px] lg:min-h-[550px]"
                   loading="lazy"
                   onError={(e) => {
                     const target = e.currentTarget;
