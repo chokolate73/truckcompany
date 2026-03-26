@@ -81,12 +81,18 @@ html {
   display: none;
 }
 
-/* Animated dashed route lines on coverage map */
-@keyframes dash-move {
-  to { stroke-dashoffset: -20; }
+/* Radar pulse for coverage hub */
+@keyframes radar-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.12; }
+  50% { transform: scale(1.06); opacity: 0.06; }
 }
 
-.route-line {
-  stroke-dasharray: 6 4;
-  animation: dash-move 1.5s linear infinite;
+.animate-radar-pulse {
+  animation: radar-pulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-radar-pulse {
+    animation: none;
+  }
 }
