@@ -1,60 +1,85 @@
 "use client";
 
-import { Package, Boxes, LayoutGrid, Thermometer } from "lucide-react";
-import { AnimateOnScroll, StaggerContainer, StaggerItem } from "./AnimateOnScroll";
+import { useState } from "react";
+import { Package, Boxes, LayoutGrid, Thermometer, ArrowRight } from "lucide-react";
+import { AnimateOnScroll } from "./AnimateOnScroll";
 
 const services = [
   {
+    id: "ftl",
+    name: "Full Truckload",
+    shortName: "FTL",
     icon: Package,
-    title: "Full Truckload (FTL)",
-    desc: "Dedicated capacity for large shipments. Your freight gets its own truck — direct routes, faster transit, lower handling risk.",
+    description:
+      "Dedicated capacity for your largest shipments. Your freight gets its own truck — direct routes, faster transit times, and minimal handling risk. Ideal for high-volume shippers who need reliable, dedicated transport.",
     features: [
-      "Dedicated trailer",
-      "Direct routes",
-      "Faster delivery",
-      "Ideal for 15,000+ lbs",
+      "Dedicated trailer — your freight only",
+      "Direct point-to-point routes",
+      "Faster transit times",
+      "Ideal for loads 15,000+ lbs",
+      "Real-time GPS tracking",
+      "Experienced long-haul drivers",
     ],
   },
   {
+    id: "ltl",
+    name: "Less Than Truckload",
+    shortName: "LTL",
     icon: Boxes,
-    title: "Less Than Truckload (LTL)",
-    desc: "Cost-effective shipping for smaller loads. Share trailer space with other shippers and only pay for what you use.",
+    description:
+      "Cost-effective shipping for smaller loads. Share trailer space with other shippers and only pay for the space you use. Perfect for businesses that ship regularly but don\u2019t need a full truck.",
     features: [
-      "Pay for space used",
-      "Flexible scheduling",
-      "Ideal for under 15,000 lbs",
-      "Regular lane coverage",
+      "Pay only for space used",
+      "Flexible pickup scheduling",
+      "Ideal for loads under 15,000 lbs",
+      "Regular lane coverage nationwide",
+      "Consolidated shipping savings",
+      "Reliable delivery windows",
     ],
   },
   {
+    id: "flatbed",
+    name: "Flatbed",
+    shortName: "Flatbed",
     icon: LayoutGrid,
-    title: "Flatbed",
-    desc: "Specialized hauling for oversized, heavy, or irregularly shaped freight. Steel, machinery, lumber, construction materials.",
+    description:
+      "Specialized hauling for oversized, heavy, or irregularly shaped freight. Our flatbed fleet handles steel, machinery, lumber, construction materials, and anything that won\u2019t fit in a standard trailer.",
     features: [
-      "Open-deck loading",
-      "Oversized cargo",
-      "Heavy machinery",
+      "Open-deck loading flexibility",
+      "Oversized and heavy cargo",
+      "Heavy machinery transport",
       "Construction materials",
+      "Specialized tie-down equipment",
+      "Experienced flatbed operators",
     ],
   },
   {
+    id: "reefer",
+    name: "Refrigerated",
+    shortName: "Reefer",
     icon: Thermometer,
-    title: "Refrigerated",
-    desc: "Temperature-controlled transport for perishables, food products, pharmaceuticals, and other temperature-sensitive freight.",
+    description:
+      "Temperature-controlled transport for perishables, food products, pharmaceuticals, and other temperature-sensitive freight. Continuous monitoring ensures your product arrives in perfect condition.",
     features: [
-      "Temp monitoring",
+      "Precise temperature monitoring",
       "Food-grade compliance",
-      "Pharma-ready",
-      "Fresh & frozen",
+      "Pharmaceutical-ready units",
+      "Fresh and frozen capabilities",
+      "Temperature logs provided",
+      "HACCP-compliant procedures",
     ],
   },
 ];
 
 export default function Services() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const service = services[activeIndex];
+  const Icon = service.icon;
+
   return (
-    <section id="services" className="bg-bg-alt py-24 lg:py-32">
+    <section id="services" className="bg-bg-alt py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <AnimateOnScroll className="text-center mb-16">
+        <AnimateOnScroll className="text-center mb-12 lg:mb-16">
           <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
             What We Haul
           </span>
@@ -67,37 +92,107 @@ export default function Services() {
           </p>
         </AnimateOnScroll>
 
-        <StaggerContainer
-          className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-          staggerDelay={0.12}
-        >
-          {services.map((svc) => (
-            <StaggerItem key={svc.title} variant="scale-in">
-              <div className="group bg-white rounded-2xl p-7 border border-border-light shadow-md hover:shadow-xl hover:border-accent/30 hover:-translate-y-1 transition-all duration-300 flex flex-col h-full">
-                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-5 group-hover:bg-accent/20 transition-colors">
-                  <svc.icon className="w-6 h-6 text-accent" />
-                </div>
-                <h3 className="font-manrope font-bold text-text-dark text-xl mb-3">
-                  {svc.title}
-                </h3>
-                <p className="font-inter text-text-muted text-sm leading-relaxed mb-5 flex-1">
-                  {svc.desc}
-                </p>
-                <ul className="space-y-2">
-                  {svc.features.map((f) => (
-                    <li
-                      key={f}
-                      className="flex items-center gap-2 text-text-muted"
+        <div className="grid lg:grid-cols-[280px_1fr] gap-6 lg:gap-10">
+          {/* Sidebar — horizontal on mobile, vertical on desktop */}
+          <div className="flex lg:flex-col gap-2 overflow-x-auto pb-2 lg:pb-0 scrollbar-hide">
+            {services.map((s, i) => {
+              const SIcon = s.icon;
+              const isActive = i === activeIndex;
+              return (
+                <button
+                  key={s.id}
+                  onClick={() => setActiveIndex(i)}
+                  className={`flex items-center gap-3 px-5 py-4 rounded-xl text-left transition-all duration-300 shrink-0 ${
+                    isActive
+                      ? "bg-[#0F1D3A] text-white shadow-lg"
+                      : "bg-white text-text-dark border border-border-light hover:border-accent/30 hover:shadow-md"
+                  }`}
+                >
+                  <div
+                    className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+                      isActive ? "bg-accent" : "bg-accent/10"
+                    }`}
+                  >
+                    <SIcon
+                      className={`w-5 h-5 ${isActive ? "text-white" : "text-accent"}`}
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p
+                      className={`font-manrope font-bold text-base whitespace-nowrap ${
+                        isActive ? "text-white" : "text-text-dark"
+                      }`}
                     >
-                      <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" />
-                      <span className="font-inter text-sm">{f}</span>
-                    </li>
-                  ))}
-                </ul>
+                      {s.name}
+                    </p>
+                    <p
+                      className={`text-xs ${isActive ? "text-white/60" : "text-text-muted"}`}
+                    >
+                      {s.shortName}
+                    </p>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+
+          {/* Right showcase panel */}
+          <div
+            key={service.id}
+            className="bg-white rounded-2xl border border-border-light shadow-sm overflow-hidden animate-fade-in"
+          >
+            {/* Service image / fallback */}
+            <div
+              className="h-[200px] lg:h-[300px] relative"
+              style={{ backgroundColor: "#0F1D3A" }}
+            >
+              <div className="absolute inset-0 flex items-center justify-center">
+                <Icon className="w-20 h-20 text-accent/20" />
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    "linear-gradient(to top, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 60%)",
+                }}
+              />
+            </div>
+
+            {/* Content */}
+            <div className="px-6 lg:px-8 pb-8 -mt-8 relative">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                  <Icon className="w-6 h-6 text-accent" />
+                </div>
+                <h3 className="font-manrope font-bold text-text-dark text-2xl lg:text-3xl">
+                  {service.name} ({service.shortName})
+                </h3>
+              </div>
+
+              <p className="font-inter text-text-muted text-base lg:text-lg leading-relaxed mb-6">
+                {service.description}
+              </p>
+
+              <div className="grid sm:grid-cols-2 gap-3 mb-8">
+                {service.features.map((feature) => (
+                  <div key={feature} className="flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
+                    <span className="font-inter text-text-dark text-sm">
+                      {feature}
+                    </span>
+                  </div>
+                ))}
+              </div>
+
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold px-8 py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
+              >
+                Get a Quote <ArrowRight className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );
