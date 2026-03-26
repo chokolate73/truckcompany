@@ -34,20 +34,17 @@ export default function Testimonials() {
   return (
     <section
       id="testimonials"
-      className="py-24 lg:py-32"
-      style={{
-        background: "linear-gradient(135deg, #0F1D3A 0%, #1B2A4A 100%)",
-      }}
+      className="bg-white py-24 lg:py-32"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll className="text-center mb-16">
           <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
             What Our Partners Say
           </span>
-          <h2 className="font-manrope font-extrabold text-white text-4xl lg:text-5xl mt-3">
+          <h2 className="font-manrope font-extrabold text-text-dark text-4xl lg:text-5xl mt-3">
             Trusted by Shippers Nationwide
           </h2>
-          <p className="font-inter text-text-white-muted text-lg mt-4 max-w-2xl mx-auto">
+          <p className="font-inter text-text-muted text-lg mt-4 max-w-2xl mx-auto">
             Don&apos;t just take our word for it — hear from the businesses that
             rely on D&V Services every day.
           </p>
@@ -59,9 +56,9 @@ export default function Testimonials() {
         >
           {testimonials.map((t) => (
             <StaggerItem key={t.name} variant="fade-up">
-              <div className="rounded-2xl p-7 border border-border-dark bg-white/[0.06] h-full flex flex-col">
+              <div className="rounded-2xl p-7 border border-border-light bg-bg-alt h-full flex flex-col">
                 <Quote className="w-8 h-8 text-accent mb-4 shrink-0" />
-                <p className="font-inter text-text-white-muted text-base leading-relaxed mb-6 flex-1">
+                <p className="font-inter text-text-muted text-base leading-relaxed mb-6 flex-1">
                   &ldquo;{t.quote}&rdquo;
                 </p>
                 <div className="flex gap-0.5 mb-4">
@@ -73,10 +70,10 @@ export default function Testimonials() {
                   ))}
                 </div>
                 <div>
-                  <p className="font-manrope font-bold text-white text-sm">
+                  <p className="font-manrope font-bold text-text-dark text-sm">
                     {t.name}
                   </p>
-                  <p className="font-inter text-text-white-muted text-xs">
+                  <p className="font-inter text-text-muted text-xs">
                     {t.title}, {t.company}
                   </p>
                 </div>
