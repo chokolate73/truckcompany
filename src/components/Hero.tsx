@@ -16,31 +16,41 @@ const fadeUp = {
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy"
-      style={{
-        background:
-          "linear-gradient(135deg, #0F1D3A 0%, #1B2A4A 50%, #1B2A4A 100%)",
-      }}
+      className="relative min-h-screen flex items-center overflow-hidden"
+      style={{ backgroundColor: "#0F1D3A" }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/40" />
+      {/* Background truck image */}
+      <div
+        className="absolute inset-0 bg-cover bg-no-repeat bg-[position:70%_center] md:bg-center"
+        style={{ backgroundImage: "url('/images/hero-truck.jpg')" }}
+      />
 
-      {/* Floating particles */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {[...Array(5)].map((_, i) => (
-          <div
-            key={i}
-            className="absolute rounded-full bg-accent/20 animate-float"
-            style={{
-              width: `${8 + i * 6}px`,
-              height: `${8 + i * 6}px`,
-              left: `${15 + i * 18}%`,
-              top: `${20 + (i % 3) * 25}%`,
-              animationDelay: `${i * 1.2}s`,
-              animationDuration: `${5 + i}s`,
-            }}
-          />
-        ))}
-      </div>
+      {/* Left-to-right gradient overlay (desktop) */}
+      <div
+        className="absolute inset-0 hidden md:block"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(15,29,58,0.95) 0%, rgba(15,29,58,0.85) 25%, rgba(15,29,58,0.55) 50%, rgba(15,29,58,0.25) 75%, rgba(15,29,58,0.10) 100%)",
+        }}
+      />
+
+      {/* Top-to-bottom gradient overlay (mobile) */}
+      <div
+        className="absolute inset-0 md:hidden"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(15,29,58,0.92) 0%, rgba(15,29,58,0.80) 60%, rgba(15,29,58,0.5) 100%)",
+        }}
+      />
+
+      {/* Subtle top/bottom gradient for navbar and wave transition */}
+      <div
+        className="absolute inset-0 hidden md:block"
+        style={{
+          background:
+            "linear-gradient(to bottom, rgba(15,29,58,0.7) 0%, transparent 30%, transparent 80%, rgba(15,29,58,0.5) 100%)",
+        }}
+      />
 
       <motion.div
         variants={container}
