@@ -58,7 +58,7 @@ export default function Hero() {
         animate="visible"
         className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-28 pb-16 lg:py-0"
       >
-        <div className="max-w-xl lg:max-w-2xl">
+        <div className="max-w-xl lg:max-w-3xl xl:max-w-4xl">
           <motion.div
             variants={fadeUp}
             className="inline-flex items-center gap-2 bg-accent/15 border border-accent/30 text-accent font-inter font-semibold text-sm px-4 py-1.5 rounded-full mb-6"
@@ -77,7 +77,7 @@ export default function Hero() {
 
           <motion.p
             variants={fadeUp}
-            className="font-inter text-text-white-muted text-lg lg:text-2xl leading-relaxed mb-10 lg:mb-12 max-w-lg lg:max-w-xl"
+            className="font-inter text-text-white-muted text-lg lg:text-2xl leading-relaxed mb-10 lg:mb-12 max-w-lg lg:max-w-2xl"
           >
             D&V Services Inc. delivers reliable FTL, LTL, Flatbed, and
             Refrigerated shipping across the continental United States. Trusted
