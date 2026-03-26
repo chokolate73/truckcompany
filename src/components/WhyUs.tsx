@@ -1,39 +1,34 @@
 "use client";
 
-import { CalendarCheck, Map, Headphones, ShieldCheck } from "lucide-react";
-import { motion } from "framer-motion";
+import { ShieldCheck, PhoneCall, Route, HeartHandshake } from "lucide-react";
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "./AnimateOnScroll";
 
 const cards = [
   {
-    icon: CalendarCheck,
-    stat: "Since 2016",
-    label: "Years of Experience",
-    text: "Nearly a decade of reliable freight operations. We know the roads, lanes, and what it takes to deliver on time.",
-  },
-  {
-    icon: Map,
-    stat: "48 States",
-    label: "Nationwide Coverage",
-    text: "Full continental US coverage. Whether it's coast-to-coast or regional, we have the network to get it done.",
-  },
-  {
-    icon: Headphones,
-    stat: "24/7",
-    label: "Dispatch Support",
-    text: "Our dispatch team is available around the clock. Real people, real answers — any hour of the day or night.",
-  },
-  {
     icon: ShieldCheck,
-    stat: "Safety First",
-    label: "Compliance & Safety",
-    text: "Rigorous driver vetting, DOT compliance, and ongoing safety training keep every load — and every driver — protected.",
+    title: "Zero-Excuse Reliability",
+    text: "We don\u2019t make excuses \u2014 we make deliveries. Our on-time commitment means your freight arrives when promised, every single load.",
+  },
+  {
+    icon: PhoneCall,
+    title: "Real Humans, Real Answers",
+    text: "No automated phone trees. When you call D&V, you get a real dispatcher who knows your load and can give you an instant update.",
+  },
+  {
+    icon: Route,
+    title: "Flexible Lane Coverage",
+    text: "From dedicated Midwest corridors to coast-to-coast runs, we build solutions around your shipping needs \u2014 not the other way around.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "Partnership, Not Transactions",
+    text: "We treat every shipper and broker like a long-term partner. That\u2019s why our clients stay with us year after year.",
   },
 ];
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="bg-bg-alt py-24 lg:py-32">
+    <section id="why-us" className="bg-bg-alt py-20 lg:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <AnimateOnScroll className="text-center mb-16">
           <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
@@ -53,28 +48,18 @@ export default function WhyUs() {
           staggerDelay={0.12}
         >
           {cards.map((card) => (
-            <StaggerItem key={card.label} variant="fade-up">
-              <motion.div
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
-                className="bg-white rounded-2xl p-8 border border-border-light hover:border-accent/30 hover:shadow-xl hover:shadow-black/5 transition-all group h-full"
-                style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }}
-              >
-                <div className="w-12 h-12 rounded-xl bg-accent-soft flex items-center justify-center mb-5 group-hover:bg-accent/15 transition-colors">
-                  <card.icon
-                    className="w-6 h-6 text-accent"
-                    strokeWidth={1.5}
-                  />
+            <StaggerItem key={card.title} variant="fade-up">
+              <div className="group bg-white rounded-2xl p-8 border border-border-light shadow-md hover:shadow-xl hover:border-accent/30 hover:-translate-y-1 transition-all duration-300 h-full">
+                <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6 group-hover:bg-accent/20 transition-colors">
+                  <card.icon className="w-7 h-7 text-accent" />
                 </div>
-                <p className="font-manrope font-extrabold text-text-dark text-4xl mb-1">
-                  {card.stat}
-                </p>
-                <p className="font-manrope font-bold text-text-muted text-sm uppercase tracking-wide mb-3">
-                  {card.label}
-                </p>
-                <p className="font-inter text-text-muted text-sm leading-relaxed">
+                <h3 className="font-manrope font-bold text-text-dark text-xl lg:text-2xl mb-2">
+                  {card.title}
+                </h3>
+                <p className="font-inter text-text-muted text-sm lg:text-base leading-relaxed">
                   {card.text}
                 </p>
-              </motion.div>
+              </div>
             </StaggerItem>
           ))}
         </StaggerContainer>
