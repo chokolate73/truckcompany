@@ -10,12 +10,12 @@ const regions = [
   "Midwest",
   "South Central",
   "Mountain West",
-  "Pacific Northwest",
+  "Pacific NW",
   "Southwest",
   "Great Plains",
 ];
 
-// Simplified US state paths (AlbersUSA-like projection, viewBox 0 0 960 600)
+// Simplified US state paths
 const states: { id: string; d: string }[] = [
   { id: "WA", d: "M158 49L176 53L188 16L208 22L214 52L220 78L200 82L190 80L182 90L162 88L148 56Z" },
   { id: "OR", d: "M140 68L158 49L148 56L162 88L182 90L172 120L168 150L112 140L100 98Z" },
@@ -67,7 +67,6 @@ const states: { id: string; d: string }[] = [
   { id: "MD", d: "M680 144L700 150L700 136L706 152L694 158L680 152Z" },
 ];
 
-// Route lines from Gurnee, IL hub to key destinations (approximate SVG coords)
 const GURNEE = { x: 520, y: 88 };
 const routes = [
   { x: 720, y: 100, label: "New York" },
@@ -80,33 +79,42 @@ const routes = [
 
 export default function Coverage() {
   return (
-    <section id="coverage" className="bg-bg-alt py-20 lg:py-24">
+    <section id="coverage" className="bg-bg-alt py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
-        <AnimateOnScroll className="text-center mb-12">
-          <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
-            Service Coverage
-          </span>
-          <h2 className="font-manrope font-extrabold text-text-dark text-3xl sm:text-4xl lg:text-6xl leading-tight mt-3">
-            Coast to Coast.
-            <br />
-            <span className="text-accent">From Gurnee, IL.</span>
-          </h2>
-          <p className="font-inter text-text-muted text-base lg:text-xl mt-4 max-w-2xl mx-auto">
-            Operating from our Illinois hub, D&V Services covers every major
-            freight lane across all 48 contiguous states.
-          </p>
+        {/* Header row — heading left, regions + CTA right */}
+        <AnimateOnScroll>
+          <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
+            <div>
+              <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
+                Service Coverage
+              </span>
+              <h2 className="font-manrope font-extrabold text-text-dark text-3xl sm:text-4xl lg:text-5xl leading-tight mt-2">
+                Coast to Coast.{" "}
+                <span className="text-accent">From Gurnee, IL.</span>
+              </h2>
+            </div>
+            <div className="flex flex-wrap items-center gap-2">
+              {regions.map((region) => (
+                <span
+                  key={region}
+                  className="bg-[#0F1D3A] text-white font-inter text-xs px-3 py-1.5 rounded-full"
+                >
+                  {region}
+                </span>
+              ))}
+            </div>
+          </div>
         </AnimateOnScroll>
 
-        {/* Map container */}
+        {/* Compact map container */}
         <AnimateOnScroll>
-          <div className="relative bg-[#0F1D3A] rounded-2xl p-4 sm:p-6 lg:p-10 mb-10 overflow-hidden">
+          <div className="relative bg-[#0F1D3A] rounded-2xl p-3 sm:p-4 lg:p-6 overflow-hidden">
             <svg
-              viewBox="60 0 730 400"
-              className="w-full h-auto"
+              viewBox="60 -10 730 420"
+              className="w-full max-h-[340px] lg:max-h-[400px]"
+              preserveAspectRatio="xMidYMid meet"
               xmlns="http://www.w3.org/2000/svg"
             >
-              {/* State shapes */}
               {states.map((state) => (
                 <path
                   key={state.id}
@@ -118,7 +126,6 @@ export default function Coverage() {
                 />
               ))}
 
-              {/* Animated route lines */}
               {routes.map((dest) => (
                 <line
                   key={dest.label}
@@ -134,7 +141,6 @@ export default function Coverage() {
                 />
               ))}
 
-              {/* Destination dots */}
               {routes.map((dest) => (
                 <circle
                   key={dest.label}
@@ -146,7 +152,6 @@ export default function Coverage() {
                 />
               ))}
 
-              {/* Gurnee hub — pulsing ring + dot */}
               <circle
                 cx={GURNEE.x}
                 cy={GURNEE.y}
@@ -187,34 +192,16 @@ export default function Coverage() {
                 HQ
               </text>
             </svg>
+
+            {/* Inline CTA over bottom-right of map */}
+            <a
+              href="#contact"
+              className="absolute bottom-4 right-4 lg:bottom-6 lg:right-6 inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold text-sm px-5 py-2.5 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25"
+            >
+              Request a Lane <ArrowRight className="w-4 h-4" />
+            </a>
           </div>
         </AnimateOnScroll>
-
-        {/* Region tags + CTA */}
-        <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6">
-          <div>
-            <p className="font-manrope font-bold text-text-dark text-lg mb-3">
-              Regions We Serve
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {regions.map((region) => (
-                <span
-                  key={region}
-                  className="bg-[#0F1D3A] text-white font-inter text-sm px-4 py-2 rounded-full"
-                >
-                  {region}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          <a
-            href="#contact"
-            className="shrink-0 inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold px-8 py-4 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
-          >
-            Request a Lane <ArrowRight className="w-5 h-5" />
-          </a>
-        </div>
       </div>
     </section>
   );
