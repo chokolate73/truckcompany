@@ -12,7 +12,7 @@ const checkpoints = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-bg-light py-24 lg:py-32 pb-32">
+    <section id="about" className="bg-bg-light pt-20 lg:pt-24 pb-28">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <AnimateOnScroll variant="fade-left" duration={0.7}>
@@ -56,14 +56,14 @@ export default function About() {
                 <img
                   src="/image/about-fleet.jpg"
                   alt="D&V Services fleet of trucks"
-                  className="w-full h-auto object-cover aspect-[4/3]"
+                  className="w-full h-full object-cover min-h-[400px] lg:min-h-[500px]"
                   loading="lazy"
                   onError={(e) => {
                     const target = e.currentTarget;
                     target.style.display = "none";
                     target.parentElement!.style.background =
                       "linear-gradient(135deg, #0F1D3A 0%, #1B2A4A 100%)";
-                    target.parentElement!.classList.add("aspect-[4/3]");
+                    target.parentElement!.classList.add("min-h-[400px]", "lg:min-h-[500px]");
                   }}
                 />
               </div>
@@ -72,7 +72,7 @@ export default function About() {
               <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-accent/15 rounded-2xl -z-10" />
 
               {/* Small stats badge overlaying the bottom of the image */}
-              <div className="absolute -bottom-6 left-6 right-6 bg-white rounded-xl shadow-lg p-4 border border-border-light">
+              <div className="absolute -bottom-6 left-4 right-4 bg-white rounded-xl shadow-lg p-4 border border-border-light">
                 <div className="grid grid-cols-3 gap-4 text-center">
                   <div>
                     <p className="font-manrope font-extrabold text-accent text-2xl">2016</p>
