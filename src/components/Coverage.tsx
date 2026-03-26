@@ -16,14 +16,14 @@ const regions = [
 ];
 
 const destinations = [
-  { name: "Seattle", top: "8%", left: "18%" },
-  { name: "New York", top: "10%", right: "12%" },
-  { name: "Los Angeles", top: "38%", left: "3%" },
-  { name: "Chicago", top: "28%", right: "28%" },
-  { name: "Dallas", bottom: "22%", left: "28%" },
-  { name: "Atlanta", bottom: "18%", right: "18%" },
-  { name: "Denver", top: "32%", left: "25%" },
-  { name: "Miami", bottom: "6%", right: "28%" },
+  { name: "Seattle", top: "8%", left: "18%", cx: 18, cy: 8 },
+  { name: "New York", top: "10%", right: "12%", cx: 88, cy: 10 },
+  { name: "Los Angeles", top: "38%", left: "3%", cx: 3, cy: 38 },
+  { name: "Chicago", top: "28%", right: "28%", cx: 72, cy: 28 },
+  { name: "Dallas", bottom: "22%", left: "28%", cx: 28, cy: 78 },
+  { name: "Atlanta", bottom: "18%", right: "18%", cx: 82, cy: 82 },
+  { name: "Denver", top: "32%", left: "25%", cx: 25, cy: 32 },
+  { name: "Miami", bottom: "6%", right: "28%", cx: 72, cy: 94 },
 ];
 
 export default function Coverage() {
@@ -87,18 +87,41 @@ export default function Coverage() {
             </div>
           </AnimateOnScroll>
 
-          {/* Right — radar graphic with labeled cities */}
+          {/* Right — animated radar graphic with labeled cities */}
           <AnimateOnScroll variant="fade-right" duration={0.7} delay={0.2}>
             <div className="relative flex items-center justify-center">
               <div className="relative w-full aspect-square max-w-[500px] mx-auto">
-                {/* Concentric rings */}
-                <div className="absolute inset-0 rounded-full bg-accent/[0.03]" />
-                <div className="absolute inset-[12%] rounded-full bg-accent/[0.05]" />
-                <div className="absolute inset-[24%] rounded-full bg-accent/[0.08]" />
-                <div className="absolute inset-[36%] rounded-full bg-accent/[0.12] animate-radar-pulse" />
+                {/* Concentric rings — staggered scale-in */}
+                <div className="absolute inset-0 rounded-full bg-accent/[0.03] animate-ring-in ring-delay-1" />
+                <div className="absolute inset-[12%] rounded-full bg-accent/[0.05] animate-ring-in ring-delay-2" />
+                <div className="absolute inset-[24%] rounded-full bg-accent/[0.08] animate-ring-in ring-delay-3" />
+                <div className="absolute inset-[36%] rounded-full bg-accent/[0.12] animate-radar-pulse animate-ring-in ring-delay-4" />
+
+                {/* SVG route lines from hub to cities */}
+                <svg
+                  className="absolute inset-0 w-full h-full"
+                  viewBox="0 0 100 100"
+                  preserveAspectRatio="none"
+                >
+                  {destinations.map((city, i) => (
+                    <line
+                      key={city.name}
+                      x1="50"
+                      y1="50"
+                      x2={city.cx}
+                      y2={city.cy}
+                      stroke="#FF6B00"
+                      strokeWidth="0.3"
+                      strokeOpacity="0.3"
+                      strokeDasharray="1.5 1"
+                      className="animate-route-draw"
+                      style={{ animationDelay: `${0.8 + i * 0.15}s` }}
+                    />
+                  ))}
+                </svg>
 
                 {/* Center hub */}
-                <div className="absolute inset-[42%] flex items-center justify-center">
+                <div className="absolute inset-[42%] flex items-center justify-center animate-hub-in">
                   <div className="bg-accent rounded-full w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center shadow-lg shadow-accent/30">
                     <MapPin className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
                   </div>
@@ -106,7 +129,7 @@ export default function Coverage() {
 
                 {/* Hub label */}
                 <div
-                  className="absolute left-1/2 -translate-x-1/2"
+                  className="absolute left-1/2 -translate-x-1/2 animate-hub-in"
                   style={{ top: "62%" }}
                 >
                   <div className="bg-[#0F1D3A] text-white font-manrope font-bold text-sm px-4 py-2 rounded-lg shadow-md whitespace-nowrap">
@@ -114,19 +137,20 @@ export default function Coverage() {
                   </div>
                 </div>
 
-                {/* Labeled city dots */}
-                {destinations.map((city) => (
+                {/* Labeled city dots — staggered fade in */}
+                {destinations.map((city, i) => (
                   <div
                     key={city.name}
-                    className="absolute flex items-center gap-1.5"
+                    className="absolute flex items-center gap-1.5 animate-city-in"
                     style={{
                       top: city.top,
                       right: city.right,
                       bottom: city.bottom,
                       left: city.left,
+                      animationDelay: `${1.0 + i * 0.15}s`,
                     }}
                   >
-                    <span className="w-2.5 h-2.5 rounded-full bg-accent shrink-0" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-accent shrink-0 animate-dot-pulse" style={{ animationDelay: `${2 + i * 0.3}s` }} />
                     <span className="font-inter text-text-dark text-xs font-medium whitespace-nowrap">
                       {city.name}
                     </span>
