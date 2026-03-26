@@ -28,7 +28,7 @@ export default function CareersPreview() {
             <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
               Drive With Us
             </span>
-            <h2 className="font-manrope font-extrabold text-white text-3xl sm:text-4xl lg:text-6xl leading-tight mt-3 mb-6">
+            <h2 className="font-manrope font-extrabold text-white text-3xl sm:text-4xl lg:text-5xl leading-tight mt-3 mb-6">
               Your Road. Your Rules.
               <br />
               <span className="text-accent">Our Support.</span>
@@ -73,7 +73,7 @@ export default function CareersPreview() {
             </div>
 
             {/* Driver quote */}
-            <div className="bg-white/[0.06] border border-white/10 rounded-xl p-6">
+            <div className="bg-white/[0.06] border-l-4 border-accent rounded-xl p-6">
               <p className="font-inter text-white/80 text-sm italic leading-relaxed mb-3">
                 &ldquo;Best decision I made was joining D&V. They treat drivers
                 like people, not numbers. The pay is solid, the equipment is
