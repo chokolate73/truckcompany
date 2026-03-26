@@ -54,7 +54,7 @@ export default function About() {
               {/* Main fleet image */}
               <div className="rounded-2xl overflow-hidden shadow-xl">
                 <img
-                  src="/images/about-fleet.jpg"
+                  src="/image/about-fleet.jpg"
                   alt="D&V Services fleet of trucks"
                   className="w-full h-auto object-cover aspect-[4/3]"
                   loading="lazy"
