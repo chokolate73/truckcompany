@@ -1,5 +1,6 @@
 "use client";
 
+import { MapPin } from "lucide-react";
 import { AnimateOnScroll } from "./AnimateOnScroll";
 
 const regions = [
@@ -14,66 +15,127 @@ const regions = [
   "Great Plains",
 ];
 
+const destinations = [
+  { name: "Seattle", top: "8%", left: "18%" },
+  { name: "New York", top: "10%", right: "12%" },
+  { name: "Los Angeles", top: "38%", left: "3%" },
+  { name: "Chicago", top: "28%", right: "28%" },
+  { name: "Dallas", bottom: "22%", left: "28%" },
+  { name: "Atlanta", bottom: "18%", right: "18%" },
+  { name: "Denver", top: "32%", left: "25%" },
+  { name: "Miami", bottom: "6%", right: "28%" },
+];
+
 export default function Coverage() {
   return (
-    <section id="coverage" className="bg-bg-light py-20 lg:py-24">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <AnimateOnScroll>
-          <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
-            Service Coverage
-          </span>
-          <h2 className="font-manrope font-extrabold text-text-dark text-3xl sm:text-4xl lg:text-6xl leading-tight mt-3 mb-6">
-            Coast to Coast.
-            <br />
-            <span className="text-accent">From Gurnee, IL.</span>
-          </h2>
-          <p className="font-inter text-text-muted text-base lg:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
-            With our headquarters in Gurnee, Illinois, we service the entire
-            continental United States. Whether it&apos;s a local Midwest run or
-            a coast-to-coast haul — we&apos;re there.
-          </p>
-        </AnimateOnScroll>
-
-        {/* Region checklist */}
-        <AnimateOnScroll>
-          <div className="flex flex-wrap justify-center gap-x-6 gap-y-3 mb-10">
-            {regions.map((region) => (
-              <div key={region} className="flex items-center gap-2">
-                <div className="w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center shrink-0">
-                  <svg
-                    className="w-3 h-3 text-accent"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth="3"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <span className="font-inter text-text-dark text-sm font-medium">
-                  {region}
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Custom lane CTA */}
-          <div className="flex items-center justify-center gap-2">
-            <span className="font-inter text-text-muted text-sm">
-              Need a custom lane?
+    <section id="coverage" className="bg-bg-light py-20 lg:py-24 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left — text content */}
+          <AnimateOnScroll variant="fade-left" duration={0.7}>
+            <span className="font-inter text-sm font-semibold text-accent tracking-widest uppercase">
+              Service Coverage
             </span>
-            <a
-              href="#contact"
-              className="font-inter text-accent text-sm font-semibold hover:underline"
-            >
-              Contact dispatch &rarr;
-            </a>
-          </div>
-        </AnimateOnScroll>
+            <h2 className="font-manrope font-extrabold text-text-dark text-3xl sm:text-4xl lg:text-6xl leading-tight mt-3 mb-6">
+              Coast to Coast.
+              <br />
+              <span className="text-accent">From Gurnee, IL.</span>
+            </h2>
+            <p className="font-inter text-text-muted text-base lg:text-xl leading-relaxed mb-8">
+              With our headquarters in Gurnee, Illinois, we service the entire
+              continental United States. Whether it&apos;s a local Midwest run
+              or a coast-to-coast haul — we&apos;re there.
+            </p>
+
+            {/* Region tags with checkmarks */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-8">
+              {regions.map((region) => (
+                <div key={region} className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full bg-accent/15 flex items-center justify-center shrink-0">
+                    <svg
+                      className="w-3 h-3 text-accent"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth="3"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <span className="font-inter text-text-dark text-sm font-medium">
+                    {region}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Custom lane CTA */}
+            <div className="flex items-center gap-2">
+              <span className="font-inter text-text-muted text-sm">
+                Need a custom lane?
+              </span>
+              <a
+                href="#contact"
+                className="font-inter text-accent text-sm font-semibold hover:underline"
+              >
+                Contact dispatch &rarr;
+              </a>
+            </div>
+          </AnimateOnScroll>
+
+          {/* Right — radar graphic with labeled cities */}
+          <AnimateOnScroll variant="fade-right" duration={0.7} delay={0.2}>
+            <div className="relative flex items-center justify-center">
+              <div className="relative w-full aspect-square max-w-[500px] mx-auto">
+                {/* Concentric rings */}
+                <div className="absolute inset-0 rounded-full bg-accent/[0.03]" />
+                <div className="absolute inset-[12%] rounded-full bg-accent/[0.05]" />
+                <div className="absolute inset-[24%] rounded-full bg-accent/[0.08]" />
+                <div className="absolute inset-[36%] rounded-full bg-accent/[0.12] animate-radar-pulse" />
+
+                {/* Center hub */}
+                <div className="absolute inset-[42%] flex items-center justify-center">
+                  <div className="bg-accent rounded-full w-16 h-16 lg:w-20 lg:h-20 flex items-center justify-center shadow-lg shadow-accent/30">
+                    <MapPin className="w-8 h-8 lg:w-10 lg:h-10 text-white" />
+                  </div>
+                </div>
+
+                {/* Hub label */}
+                <div
+                  className="absolute left-1/2 -translate-x-1/2"
+                  style={{ top: "62%" }}
+                >
+                  <div className="bg-[#0F1D3A] text-white font-manrope font-bold text-sm px-4 py-2 rounded-lg shadow-md whitespace-nowrap">
+                    Gurnee, IL
+                  </div>
+                </div>
+
+                {/* Labeled city dots */}
+                {destinations.map((city) => (
+                  <div
+                    key={city.name}
+                    className="absolute flex items-center gap-1.5"
+                    style={{
+                      top: city.top,
+                      right: city.right,
+                      bottom: city.bottom,
+                      left: city.left,
+                    }}
+                  >
+                    <span className="w-2.5 h-2.5 rounded-full bg-accent shrink-0" />
+                    <span className="font-inter text-text-dark text-xs font-medium whitespace-nowrap">
+                      {city.name}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </AnimateOnScroll>
+        </div>
       </div>
     </section>
   );
