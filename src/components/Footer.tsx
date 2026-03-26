@@ -68,26 +68,26 @@ export default function Footer() {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, amount: 0.1 }}
       transition={{ duration: 0.8 }}
-      className="bg-navy-900 text-navy-200 pt-16 pb-8"
+      className="bg-navy text-text-white-muted pt-16 pb-8"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-border-dark">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 bg-orange rounded-lg flex items-center justify-center">
+              <div className="w-9 h-9 bg-accent rounded-lg flex items-center justify-center">
                 <Truck className="w-5 h-5 text-white" />
               </div>
               <div>
                 <p className="font-manrope font-extrabold text-white text-base">
                   D&V Services Inc.
                 </p>
-                <p className="font-inter text-navy-300 text-xs">
+                <p className="font-inter text-text-white-muted text-xs">
                   Trucking &amp; Freight
                 </p>
               </div>
             </div>
-            <p className="font-inter text-navy-300 text-sm leading-relaxed mb-5">
+            <p className="font-inter text-text-white-muted text-sm leading-relaxed mb-5">
               Reliable freight solutions across all 48 contiguous US states.
               Serving shippers, brokers, and carriers since 2016.
             </p>
@@ -98,7 +98,7 @@ export default function Footer() {
                   href="#"
                   aria-label={s.label}
                   whileHover={{ y: -3, transition: { duration: 0.15 } }}
-                  className="w-8 h-8 bg-white/10 hover:bg-orange/70 rounded-lg flex items-center justify-center transition-colors"
+                  className="w-8 h-8 bg-white/10 hover:bg-accent/70 rounded-lg flex items-center justify-center transition-colors"
                 >
                   <s.Icon className="w-4 h-4 text-white" />
                 </motion.a>
@@ -116,7 +116,7 @@ export default function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="font-inter text-navy-300 text-sm hover:text-orange hover:translate-x-1 inline-block transition-all"
+                    className="font-inter text-text-white-muted text-sm hover:text-accent hover:translate-x-1 inline-block transition-all"
                   >
                     {link.label}
                   </a>
@@ -133,7 +133,7 @@ export default function Footer() {
             <ul className="space-y-3">
               {servicesList.map((svc) => (
                 <li key={svc}>
-                  <span className="font-inter text-navy-300 text-sm">
+                  <span className="font-inter text-text-white-muted text-sm">
                     {svc}
                   </span>
                 </li>
@@ -147,22 +147,22 @@ export default function Footer() {
               Contact
             </p>
             <address className="not-italic space-y-3">
-              <p className="font-inter text-navy-300 text-sm">
+              <p className="font-inter text-text-white-muted text-sm">
                 Gurnee, Illinois 60031
               </p>
               <a
                 href="tel:+18475550100"
-                className="font-inter text-navy-300 text-sm hover:text-orange transition-colors block"
+                className="font-inter text-text-white-muted text-sm hover:text-accent transition-colors block"
               >
                 (847) 555-0100
               </a>
               <a
                 href="mailto:dispatch@dvservicesinc.com"
-                className="font-inter text-navy-300 text-sm hover:text-orange transition-colors block"
+                className="font-inter text-text-white-muted text-sm hover:text-accent transition-colors block"
               >
                 dispatch@dvservicesinc.com
               </a>
-              <p className="font-inter text-navy-300 text-sm">
+              <p className="font-inter text-text-white-muted text-sm">
                 Dispatch: 24/7
               </p>
             </address>
@@ -170,10 +170,10 @@ export default function Footer() {
         </div>
 
         <div className="pt-7 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="font-inter text-navy-400 text-sm">
+          <p className="font-inter text-white/40 text-sm">
             &copy; 2026 D&V Services Inc. All rights reserved.
           </p>
-          <p className="font-inter text-navy-400 text-sm">
+          <p className="font-inter text-white/40 text-sm">
             MC# &middot; DOT# &middot; FMCSA Compliant
           </p>
         </div>

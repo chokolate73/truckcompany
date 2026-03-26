@@ -16,20 +16,20 @@ const fadeUp = {
 export default function Hero() {
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-navy"
       style={{
         background:
-          "linear-gradient(135deg, rgb(10, 23, 41) 0%, rgb(21, 42, 71) 50%, rgb(28, 51, 84) 100%)",
+          "linear-gradient(135deg, #0F1D3A 0%, #1B2A4A 50%, #1B2A4A 100%)",
       }}
     >
-      <div className="absolute inset-0 bg-gradient-to-r from-navy-900/90 via-navy-900/70 to-navy-900/40" />
+      <div className="absolute inset-0 bg-gradient-to-r from-navy/90 via-navy/70 to-navy/40" />
 
       {/* Floating particles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(5)].map((_, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-orange/20 animate-float"
+            className="absolute rounded-full bg-accent/20 animate-float"
             style={{
               width: `${8 + i * 6}px`,
               height: `${8 + i * 6}px`,
@@ -51,7 +51,7 @@ export default function Hero() {
         <div className="max-w-3xl">
           <motion.div
             variants={fadeUp}
-            className="inline-flex items-center gap-2 bg-orange/15 border border-orange/30 text-orange font-inter font-semibold text-sm px-4 py-1.5 rounded-full mb-6"
+            className="inline-flex items-center gap-2 bg-accent/15 border border-accent/30 text-accent font-inter font-semibold text-sm px-4 py-1.5 rounded-full mb-6"
           >
             <MapPin className="w-3.5 h-3.5" />
             Gurnee, Illinois — Serving All 48 States
@@ -62,12 +62,12 @@ export default function Hero() {
             className="font-manrope font-extrabold text-white text-5xl sm:text-6xl lg:text-7xl leading-[1.05] tracking-tight mb-6"
           >
             Moving America&apos;s
-            <span className="block text-orange">Freight Forward.</span>
+            <span className="block text-accent">Freight Forward.</span>
           </motion.h1>
 
           <motion.p
             variants={fadeUp}
-            className="font-inter text-navy-100 text-xl lg:text-2xl leading-relaxed mb-10 max-w-2xl"
+            className="font-inter text-text-white-muted text-xl lg:text-2xl leading-relaxed mb-10 max-w-2xl"
           >
             D&V Services Inc. delivers reliable FTL, LTL, Flatbed, and
             Refrigerated shipping across the continental United States. Trusted
@@ -75,7 +75,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-14">
-            <button className="group inline-flex items-center gap-2 bg-orange hover:bg-orange-600 text-white font-manrope font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-orange/30 hover:-translate-y-0.5">
+            <button className="group inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold text-lg px-8 py-4 rounded-xl transition-all shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5">
               Apply to Drive
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
             </button>
@@ -85,20 +85,20 @@ export default function Hero() {
           </motion.div>
 
           <motion.div variants={fadeUp} className="flex flex-wrap gap-6">
-            <div className="flex items-center gap-2 text-navy-200">
-              <Shield className="w-4 h-4 text-orange shrink-0" />
+            <div className="flex items-center gap-2 text-text-white-muted">
+              <Shield className="w-4 h-4 text-accent shrink-0" />
               <span className="font-inter text-sm font-medium">
                 Safety-First Culture
               </span>
             </div>
-            <div className="flex items-center gap-2 text-navy-200">
-              <MapPin className="w-4 h-4 text-orange shrink-0" />
+            <div className="flex items-center gap-2 text-text-white-muted">
+              <MapPin className="w-4 h-4 text-accent shrink-0" />
               <span className="font-inter text-sm font-medium">
                 All 48 Contiguous States
               </span>
             </div>
-            <div className="flex items-center gap-2 text-navy-200">
-              <Clock className="w-4 h-4 text-orange shrink-0" />
+            <div className="flex items-center gap-2 text-text-white-muted">
+              <Clock className="w-4 h-4 text-accent shrink-0" />
               <span className="font-inter text-sm font-medium">
                 24/7 Dispatch Support
               </span>
