@@ -6,8 +6,8 @@ import { Truck, Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "#about", label: "About" },
-  { href: "#why-us", label: "Why Us" },
   { href: "#services", label: "Services" },
+  { href: "#safety", label: "Safety" },
   { href: "#coverage", label: "Coverage" },
   { href: "#contact", label: "Contact" },
 ];
