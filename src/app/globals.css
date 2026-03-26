@@ -80,3 +80,13 @@ html {
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
+
+/* Animated dashed route lines on coverage map */
+@keyframes dash-move {
+  to { stroke-dashoffset: -20; }
+}
+
+.route-line {
+  stroke-dasharray: 6 4;
+  animation: dash-move 1.5s linear infinite;
+}
