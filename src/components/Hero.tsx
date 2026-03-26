@@ -56,9 +56,9 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-8 pt-28 pb-16 lg:py-0"
+        className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-28 pb-16 lg:py-0"
       >
-        <div className="max-w-xl lg:max-w-2xl lg:pr-12">
+        <div className="max-w-xl lg:max-w-2xl">
           <motion.div
             variants={fadeUp}
             className="inline-flex items-center gap-2 bg-accent/15 border border-accent/30 text-accent font-inter font-semibold text-sm px-4 py-1.5 rounded-full mb-6"
