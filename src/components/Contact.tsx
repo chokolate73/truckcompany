@@ -8,21 +8,21 @@ const contactCards = [
   {
     icon: MapPin,
     label: "Address",
-    value: "Gurnee, Illinois 60031",
+    value: "3650 Washington St, Gurnee, IL 60031",
     sub: "Lake County, IL",
   },
   {
     icon: Phone,
     label: "Phone",
-    value: "(847) 555-0100",
-    href: "tel:+18475550100",
+    value: "(224) 330-2245",
+    href: "tel:+12243302245",
     sub: "Mon–Fri 8am–6pm CT",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "dispatch@dvservicesinc.com",
-    href: "mailto:dispatch@dvservicesinc.com",
+    value: "dvservices.safety@gmail.com",
+    href: "mailto:dvservices.safety@gmail.com",
     sub: "We respond within 24hrs",
   },
   {
@@ -45,92 +45,162 @@ export default function Contact() {
             Contact Us
           </h2>
           <p className="font-inter text-text-muted text-lg mt-4 max-w-xl mx-auto">
-            Ready to ship? Looking to drive? Reach out directly — no forms, no
-            runaround.
+            Ready to ship? Looking to drive? Reach out directly — we&apos;d love
+            to hear from you.
           </p>
         </AnimateOnScroll>
 
         <div className="grid lg:grid-cols-2 gap-12 items-start">
-          <StaggerContainer
-            className="grid sm:grid-cols-2 gap-5"
-            staggerDelay={0.1}
-          >
-            {contactCards.map((card) => (
-              <StaggerItem key={card.label} variant="fade-up">
-                <motion.div
-                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                  className="bg-white rounded-2xl p-7 border border-border-light hover:border-accent/30 hover:shadow-lg transition-all h-full"
-                  style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }}
-                >
-                  <div className="w-11 h-11 bg-accent-soft rounded-xl flex items-center justify-center mb-4">
-                    <card.icon
-                      className="w-5 h-5 text-accent"
-                      strokeWidth={1.5}
-                    />
-                  </div>
-                  <p className="font-inter text-text-muted text-xs uppercase tracking-widest mb-1">
-                    {card.label}
-                  </p>
-                  {card.href ? (
-                    <a
-                      href={card.href}
-                      className="font-manrope font-bold text-text-dark text-lg hover:text-accent transition-colors block"
-                    >
-                      {card.value}
-                    </a>
-                  ) : (
-                    <p className="font-manrope font-bold text-text-dark text-lg">
-                      {card.value}
-                    </p>
-                  )}
-                  <p className="font-inter text-text-muted text-sm mt-1">
-                    {card.sub}
-                  </p>
-                </motion.div>
-              </StaggerItem>
-            ))}
-
-            {/* CDL Careers Banner — FULL ORANGE background */}
-            <StaggerItem
-              variant="fade-up"
-              className="sm:col-span-2"
+          {/* Left: contact cards + careers banner */}
+          <div className="space-y-5">
+            <StaggerContainer
+              className="grid sm:grid-cols-2 gap-5"
+              staggerDelay={0.1}
             >
+              {contactCards.map((card) => (
+                <StaggerItem key={card.label} variant="fade-up">
+                  <motion.div
+                    whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                    className="bg-white rounded-2xl p-7 border border-border-light hover:border-accent/30 hover:shadow-lg transition-all h-full"
+                    style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.08)" }}
+                  >
+                    <div className="w-11 h-11 bg-accent-soft rounded-xl flex items-center justify-center mb-4">
+                      <card.icon
+                        className="w-5 h-5 text-accent"
+                        strokeWidth={1.5}
+                      />
+                    </div>
+                    <p className="font-inter text-text-muted text-xs uppercase tracking-widest mb-1">
+                      {card.label}
+                    </p>
+                    {card.href ? (
+                      <a
+                        href={card.href}
+                        className="font-manrope font-bold text-text-dark text-lg hover:text-accent transition-colors block"
+                      >
+                        {card.value}
+                      </a>
+                    ) : (
+                      <p className="font-manrope font-bold text-text-dark text-lg">
+                        {card.value}
+                      </p>
+                    )}
+                    <p className="font-inter text-text-muted text-sm mt-1">
+                      {card.sub}
+                    </p>
+                  </motion.div>
+                </StaggerItem>
+              ))}
+            </StaggerContainer>
+
+            {/* CDL Careers Banner */}
+            <AnimateOnScroll variant="fade-up" delay={0.3}>
               <motion.div
                 whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
-                className="bg-accent rounded-2xl p-7 flex flex-col sm:flex-row items-start sm:items-center gap-5 shadow-lg shadow-accent/20"
+                className="bg-accent rounded-2xl p-7 shadow-lg shadow-accent/20"
               >
-                <div className="flex-1">
-                  <p className="font-manrope font-bold text-white text-xl mb-1">
-                    CDL Drivers — Join Our Team
-                  </p>
-                  <p className="font-inter text-white/85 text-sm">
-                    We&apos;re actively recruiting Class A CDL drivers.
-                    Competitive pay, home time, and a team that respects your
-                    hustle.
-                  </p>
-                </div>
+                <p className="font-manrope font-bold text-white text-xl mb-2">
+                  CDL Drivers — Join Our Team
+                </p>
+                <p className="font-inter text-white/85 text-sm mb-3">
+                  Competitive Pay &bull; Consistent Home Time &bull; Safety-First
+                  Culture &bull; Modern Equipment
+                </p>
+                <p className="font-inter text-white/70 text-xs mb-4">
+                  Class A CDL required. 2+ years experience preferred.
+                </p>
                 <a
-                  href="mailto:dispatch@dvservicesinc.com?subject=CDL Driver Application"
-                  className="shrink-0 bg-white hover:bg-white/90 text-accent font-manrope font-bold text-sm px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5 whitespace-nowrap"
+                  href="mailto:dvservices.safety@gmail.com?subject=CDL Driver Application"
+                  className="inline-block bg-white hover:bg-white/90 text-accent font-manrope font-bold text-sm px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:-translate-y-0.5"
                 >
                   Apply to Drive
                 </a>
               </motion.div>
-            </StaggerItem>
-          </StaggerContainer>
+            </AnimateOnScroll>
+          </div>
 
-          {/* Map */}
+          {/* Right: contact form */}
           <AnimateOnScroll variant="fade-right" delay={0.2} duration={0.7}>
-            <div className="rounded-2xl overflow-hidden border border-border-light shadow-sm h-[420px]">
-              <iframe
-                title="D&V Services Inc. Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47460.09268847853!2d-87.9589!3d42.3706!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880f9e4a7a9e3a25%3A0x3c3c3c3c3c3c3c3c!2sGurnee%2C+IL+60031!5e0!3m2!1sen!2sus!4v1710000000000"
-                width="100%"
-                height="100%"
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                style={{ border: 0 }}
-              />
+            <div className="bg-white rounded-2xl p-8 border border-border-light shadow-sm">
+              <h3 className="font-manrope font-bold text-text-dark text-xl mb-6">
+                Send Us a Message
+              </h3>
+              <form
+                action="mailto:dvservices.safety@gmail.com"
+                method="POST"
+                encType="text/plain"
+                className="space-y-5"
+              >
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="font-inter text-text-dark text-sm font-medium block mb-1.5"
+                  >
+                    Name <span className="text-accent">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    className="w-full border border-border-light rounded-xl px-4 py-3 font-inter text-sm text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                    placeholder="Your full name"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="font-inter text-text-dark text-sm font-medium block mb-1.5"
+                  >
+                    Email <span className="text-accent">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    className="w-full border border-border-light rounded-xl px-4 py-3 font-inter text-sm text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                    placeholder="you@company.com"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="font-inter text-text-dark text-sm font-medium block mb-1.5"
+                  >
+                    Phone
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    className="w-full border border-border-light rounded-xl px-4 py-3 font-inter text-sm text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
+                    placeholder="(555) 000-0000"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="font-inter text-text-dark text-sm font-medium block mb-1.5"
+                  >
+                    Message <span className="text-accent">*</span>
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    required
+                    rows={4}
+                    className="w-full border border-border-light rounded-xl px-4 py-3 font-inter text-sm text-text-dark placeholder:text-text-muted/50 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
+                    placeholder="Tell us about your shipping needs..."
+                  />
+                </div>
+                <button
+                  type="submit"
+                  className="w-full bg-accent hover:bg-accent-hover text-white font-manrope font-bold text-base px-6 py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
+                >
+                  Send Message
+                </button>
+              </form>
             </div>
           </AnimateOnScroll>
         </div>

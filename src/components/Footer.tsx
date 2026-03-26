@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 
 const quickLinks = [
   { href: "#about", label: "About Us" },
-  { href: "#why-us", label: "Why Choose Us" },
   { href: "#services", label: "Services" },
+  { href: "#safety", label: "Safety" },
   { href: "#coverage", label: "Coverage" },
   { href: "#contact", label: "Contact" },
 ];
@@ -148,19 +148,19 @@ export default function Footer() {
             </p>
             <address className="not-italic space-y-3">
               <p className="font-inter text-text-white-muted text-sm">
-                Gurnee, Illinois 60031
+                3650 Washington St, Gurnee, IL 60031
               </p>
               <a
-                href="tel:+18475550100"
+                href="tel:+12243302245"
                 className="font-inter text-text-white-muted text-sm hover:text-accent transition-colors block"
               >
-                (847) 555-0100
+                (224) 330-2245
               </a>
               <a
-                href="mailto:dispatch@dvservicesinc.com"
+                href="mailto:dvservices.safety@gmail.com"
                 className="font-inter text-text-white-muted text-sm hover:text-accent transition-colors block"
               >
-                dispatch@dvservicesinc.com
+                dvservices.safety@gmail.com
               </a>
               <p className="font-inter text-text-white-muted text-sm">
                 Dispatch: 24/7
