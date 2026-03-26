@@ -2,6 +2,14 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Shield, Clock, ArrowRight } from "lucide-react";
+import AnimatedCounter from "./AnimatedCounter";
+
+const stats = [
+  { value: 2016, label: "Year Established", suffix: "" },
+  { value: 48, label: "States Covered", suffix: "" },
+  { value: 4, label: "Service Types", suffix: "" },
+  { value: 24, label: "Dispatch Support", suffix: "/7" },
+];
 
 const container = {
   hidden: {},
@@ -56,7 +64,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-28 pb-16 lg:py-0"
+        className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-28 pb-52 lg:pt-0 lg:pb-56"
       >
         <div className="max-w-xl lg:max-w-3xl xl:max-w-4xl">
           <motion.div
@@ -117,6 +125,43 @@ export default function Hero() {
         </div>
       </motion.div>
 
+      {/* Stats Bar — same truck bg behind */}
+      <div className="absolute bottom-0 left-0 right-0 z-10">
+        <div className="border-t border-white/10 py-8 lg:py-12 backdrop-blur-sm"
+          style={{ background: "rgba(15,29,58,0.75)" }}
+        >
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+              {stats.map((stat) => (
+                <div key={stat.label} className="text-center">
+                  <p className="font-manrope font-extrabold text-accent text-4xl lg:text-5xl leading-none">
+                    <AnimatedCounter target={stat.value} duration={2000} />
+                    {stat.suffix && (
+                      <span className="text-accent">{stat.suffix}</span>
+                    )}
+                  </p>
+                  <p className="font-inter text-text-white-muted text-sm mt-2">
+                    {stat.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Wave transition to About */}
+        <svg
+          viewBox="0 0 1440 60"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full block -mb-px"
+        >
+          <path
+            d="M0,30 C360,60 1080,0 1440,30 L1440,60 L0,60 Z"
+            fill="white"
+          />
+        </svg>
+      </div>
     </section>
   );
 }
