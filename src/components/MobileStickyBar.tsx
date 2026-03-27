@@ -16,13 +16,7 @@ export default function MobileStickyBar() {
   }, []);
 
   const handleApply = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-      setTimeout(() => {
-        window.dispatchEvent(new CustomEvent("switchToDriverTab"));
-      }, 300);
-    }
+    window.dispatchEvent(new Event("openApplyModal"));
   };
 
   if (!visible) return null;

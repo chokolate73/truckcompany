@@ -57,13 +57,12 @@ export default function Header() {
                 <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-4/5 rounded-full" />
               </a>
             ))}
-            <a
-              href="#contact"
-              onClick={() => setTimeout(() => window.dispatchEvent(new Event("switchToDriverTab")), 100)}
+            <button
+              onClick={() => window.dispatchEvent(new Event("openApplyModal"))}
               className="ml-3 bg-accent hover:bg-accent-hover text-white font-manrope font-semibold text-sm px-5 py-2.5 rounded-lg transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
             >
               Apply to Drive
-            </a>
+            </button>
           </nav>
 
           <button
@@ -121,19 +120,18 @@ export default function Header() {
                   {link.label}
                 </motion.a>
               ))}
-              <motion.a
-                href="#contact"
+              <motion.button
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                className="block mt-2 bg-accent hover:bg-accent-hover text-white font-manrope font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors text-center"
+                className="block w-full mt-2 bg-accent hover:bg-accent-hover text-white font-manrope font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors text-center"
                 onClick={() => {
                   setMobileOpen(false);
-                  setTimeout(() => window.dispatchEvent(new Event("switchToDriverTab")), 100);
+                  window.dispatchEvent(new Event("openApplyModal"));
                 }}
               >
                 Apply to Drive
-              </motion.a>
+              </motion.button>
             </div>
           </motion.div>
         )}

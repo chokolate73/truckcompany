@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import BackToTop from "@/components/BackToTop";
 import MobileStickyBar from "@/components/MobileStickyBar";
+import ApplyModal from "@/components/ApplyModal";
 
 export const metadata: Metadata = {
   title: "D&V Services Portal",
@@ -43,6 +44,7 @@ export default function RootLayout({
         {children}
         <BackToTop />
         <MobileStickyBar />
+        <ApplyModal />
       </body>
     </html>
   );
