@@ -27,9 +27,9 @@ export default function Header() {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`lg:fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy lg:bg-transparent ${
+      className={`lg:fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy ${
         scrolled
-          ? "lg:bg-navy/95 lg:backdrop-blur-md lg:shadow-lg lg:shadow-black/10"
+          ? "lg:shadow-lg lg:shadow-black/10"
           : ""
       }`}
     >
