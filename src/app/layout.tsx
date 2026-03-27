@@ -14,12 +14,21 @@ export const metadata: Metadata = {
     url: "https://dv-fleet-flow.base44.app",
     siteName: "D&V Services Portal",
     type: "website",
+    images: [
+      {
+        url: "/images/preview.png",
+        width: 1200,
+        height: 630,
+        alt: "D&V Services Inc. - Professional Trucking & Freight",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "D&V Services Portal",
     description:
       "Professional trucking and logistics portal for D&V Services Inc., connecting shippers with reliable FTL, LTL, and refrigerated freight solutions across the United States.",
+    images: ["/images/preview.png"],
   },
 };
 
