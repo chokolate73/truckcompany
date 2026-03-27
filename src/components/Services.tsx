@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Package, Boxes, LayoutGrid, Thermometer, ArrowRight } from "lucide-react";
+import { Package, Boxes, LayoutGrid, Thermometer, Weight, ArrowRight } from "lucide-react";
 import { AnimateOnScroll } from "./AnimateOnScroll";
 
 const services = [
@@ -54,6 +54,23 @@ const services = [
     ],
   },
   {
+    id: "heavy-haul",
+    name: "Heavy Haul Cargo",
+    shortName: "Heavy Haul",
+    icon: Weight,
+    image: "/images/Heavy Haul Cargo.jpg",
+    description:
+      "Specialized transport for oversized and overweight freight. From heavy machinery to industrial equipment, we have the permits, pilot cars, and expertise to move your most challenging loads safely and on time.",
+    features: [
+      "Oversized & overweight loads",
+      "Permit and route planning",
+      "Pilot car coordination",
+      "Heavy machinery transport",
+      "Industrial equipment hauling",
+      "Experienced heavy-haul operators",
+    ],
+  },
+  {
     id: "reefer",
     name: "Refrigerated",
     shortName: "Reefer",
@@ -87,7 +104,7 @@ export default function Services() {
             Our Shipping Services
           </h2>
           <p className="font-inter text-text-muted text-lg mt-4 max-w-2xl mx-auto">
-            Four service types. One reliable partner. Whatever your freight
+            Five service types. One reliable partner. Whatever your freight
             needs, we have the equipment and expertise.
           </p>
         </AnimateOnScroll>
@@ -174,6 +191,16 @@ export default function Services() {
                 Get a Quote <ArrowRight className="w-5 h-5" />
               </button>
             </div>
+
+            {service.image && (
+              <div className="h-48 lg:h-56 overflow-hidden">
+                <img
+                  src={service.image}
+                  alt={service.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
