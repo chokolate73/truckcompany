@@ -110,7 +110,7 @@ export default function Services() {
 
         <div className="grid lg:grid-cols-[280px_1fr] gap-6 lg:gap-8 items-stretch">
           {/* Sidebar — horizontal on mobile, vertical on desktop */}
-          <div className="flex lg:grid lg:grid-cols-1 gap-2 overflow-x-auto pb-2 lg:pb-0 lg:overflow-visible">
+          <div className="flex flex-wrap justify-center lg:grid lg:grid-cols-1 gap-2">
             {services.map((s, i) => {
               const SIcon = s.icon;
               const isActive = i === activeIndex;
@@ -118,24 +118,24 @@ export default function Services() {
                 <button
                   key={s.id}
                   onClick={() => setActiveIndex(i)}
-                  className={`relative flex items-center gap-3 px-4 py-3 lg:px-5 lg:py-4 rounded-xl text-left transition-all duration-300 shrink-0 lg:shrink ${
+                  className={`relative flex items-center gap-2 px-3 py-2.5 sm:gap-3 sm:px-4 sm:py-3 lg:px-5 lg:py-4 rounded-xl text-left transition-all duration-300 ${
                     isActive
                       ? "bg-[#0F1D3A] text-white shadow-lg border-l-4 border-l-accent lg:border-l-4"
                       : "bg-white text-text-dark border border-border-light shadow-sm hover:border-accent/30 hover:shadow-md"
                   }`}
                 >
                   <div
-                    className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
+                    className={`w-9 h-9 sm:w-10 sm:h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${
                       isActive ? "bg-accent" : "bg-accent/10"
                     }`}
                   >
                     <SIcon
-                      className={`w-5 h-5 ${isActive ? "text-white" : "text-accent"}`}
+                      className={`w-4 h-4 sm:w-5 sm:h-5 ${isActive ? "text-white" : "text-accent"}`}
                     />
                   </div>
                   <div className="min-w-0">
                     <p
-                      className={`font-manrope font-bold text-sm lg:text-base truncate ${
+                      className={`font-manrope font-bold text-xs sm:text-sm lg:text-base truncate ${
                         isActive ? "text-white" : "text-text-dark"
                       }`}
                     >
