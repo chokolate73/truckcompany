@@ -19,7 +19,7 @@ export default function Coverage() {
     <section
       id="coverage"
       className="relative min-h-[500px] lg:min-h-[550px] flex items-center overflow-hidden"
-      style={{ backgroundColor: "#0F1D3A" }}
+      style={{ backgroundColor: "#0C1A32" }}
     >
       {/* Background map image */}
       <div
@@ -36,7 +36,7 @@ export default function Coverage() {
         className="absolute inset-0 hidden md:block"
         style={{
           background:
-            "linear-gradient(to right, rgba(15,29,58,0.90) 0%, rgba(15,29,58,0.65) 35%, rgba(15,29,58,0.35) 60%, rgba(15,29,58,0.15) 100%)",
+            "linear-gradient(to right, rgba(12,26,50,0.90) 0%, rgba(12,26,50,0.65) 35%, rgba(12,26,50,0.35) 60%, rgba(12,26,50,0.15) 100%)",
         }}
       />
 
@@ -45,7 +45,7 @@ export default function Coverage() {
         className="absolute inset-0 md:hidden"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(15,29,58,0.50) 0%, rgba(15,29,58,0.85) 35%, rgba(15,29,58,0.95) 55%, rgba(15,29,58,0.95) 100%)",
+            "linear-gradient(to bottom, rgba(12,26,50,0.50) 0%, rgba(12,26,50,0.85) 35%, rgba(12,26,50,0.95) 55%, rgba(12,26,50,0.95) 100%)",
         }}
       />
 
