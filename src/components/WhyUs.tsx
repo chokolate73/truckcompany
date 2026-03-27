@@ -6,7 +6,7 @@ const items = [
   {
     num: "01",
     title: "Zero-Excuse Reliability",
-    text: "We don\u2019t make excuses \u2014 we make deliveries. Our on-time commitment means your freight arrives when promised, every single load.",
+    text: "We don\u2019t make excuses - we make deliveries. Our on-time commitment means your freight arrives when promised, every single load.",
   },
   {
     num: "02",
@@ -16,7 +16,7 @@ const items = [
   {
     num: "03",
     title: "Flexible Lane Coverage",
-    text: "From dedicated Midwest corridors to coast-to-coast runs, we build solutions around your shipping needs \u2014 not the other way around.",
+    text: "From dedicated Midwest corridors to coast-to-coast runs, we build solutions around your shipping needs - not the other way around.",
   },
   {
     num: "04",

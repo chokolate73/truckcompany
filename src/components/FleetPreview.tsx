@@ -14,7 +14,7 @@ const fleetItems = [
   },
   {
     name: "Flatbed Trailers",
-    spec: "48' – 53' open deck",
+    spec: "48' - 53' open deck",
     description:
       "Open-deck versatility for oversized, heavy, and irregularly shaped cargo. Steel, lumber, machinery, and construction materials.",
 
