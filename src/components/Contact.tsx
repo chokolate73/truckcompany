@@ -289,7 +289,7 @@ export default function Contact() {
             Contact Us
           </h2>
           <p className="font-inter text-text-muted text-lg mt-4 max-w-xl mx-auto">
-            Ready to ship? Looking to drive? Reach out directly &mdash; we&apos;d love
+            Ready to ship? Looking to drive? Reach out directly - we&apos;d love
             to hear from you.
           </p>
         </AnimateOnScroll>

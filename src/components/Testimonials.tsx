@@ -22,7 +22,7 @@ const testimonials = [
   },
   {
     quote:
-      "Reliable, professional, and honest — that's hard to find in this industry. D&V handles our flatbed shipments with zero damage claims in 18 months of partnership.",
+      "Reliable, professional, and honest - that's hard to find in this industry. D&V handles our flatbed shipments with zero damage claims in 18 months of partnership.",
     name: "James K.",
     title: "Operations VP",
     company: "Steel & Build Materials",
@@ -45,7 +45,7 @@ export default function Testimonials() {
             Trusted by Shippers Nationwide
           </h2>
           <p className="font-inter text-text-muted text-lg mt-4 max-w-2xl mx-auto">
-            Don&apos;t just take our word for it — hear from the businesses that
+            Don&apos;t just take our word for it - hear from the businesses that
             rely on D&V Services every day.
           </p>
         </AnimateOnScroll>

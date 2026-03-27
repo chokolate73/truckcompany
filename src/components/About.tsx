@@ -4,7 +4,7 @@ import { CircleCheckBig } from "lucide-react";
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "./AnimateOnScroll";
 
 const checkpoints = [
-  "Reliability you can count on — every load, every lane.",
+  "Reliability you can count on - every load, every lane.",
   "Safety-first operations with rigorous driver standards.",
   "Transparent communication from pickup to delivery.",
   "Trusted by shippers, brokers, and carriers nationwide.",
@@ -31,7 +31,7 @@ export default function About() {
             </p>
             <p className="font-inter text-text-muted text-base lg:text-xl leading-relaxed mb-8">
               We serve shippers, freight brokers, and direct clients who need a
-              reliable partner — one that answers the phone, keeps its
+              reliable partner - one that answers the phone, keeps its
               commitments, and operates with the highest safety standards in the
               industry.
             </p>

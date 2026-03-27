@@ -6,7 +6,7 @@ import MobileStickyBar from "@/components/MobileStickyBar";
 export const metadata: Metadata = {
   title: "D&V Services Portal",
   description:
-    "D&V Services Inc. — Professional trucking and freight company based in Gurnee, IL. FTL, LTL, Flatbed, and Refrigerated shipping across all 48 contiguous US states since 2016.",
+    "D&V Services Inc. - Professional trucking and freight company based in Gurnee, IL. FTL, LTL, Flatbed, and Refrigerated shipping across all 48 contiguous US states since 2016.",
   openGraph: {
     title: "D&V Services Portal",
     description:

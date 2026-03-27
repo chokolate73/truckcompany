@@ -11,9 +11,9 @@ const services = [
     shortName: "FTL",
     icon: Package,
     description:
-      "Dedicated capacity for your largest shipments. Your freight gets its own truck — direct routes, faster transit times, and minimal handling risk. Ideal for high-volume shippers who need reliable, dedicated transport.",
+      "Dedicated capacity for your largest shipments. Your freight gets its own truck - direct routes, faster transit times, and minimal handling risk. Ideal for high-volume shippers who need reliable, dedicated transport.",
     features: [
-      "Dedicated trailer — your freight only",
+      "Dedicated trailer - your freight only",
       "Direct point-to-point routes",
       "Faster transit times",
       "Ideal for loads 15,000+ lbs",
