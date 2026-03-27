@@ -85,10 +85,14 @@ export default function Hero() {
           </motion.p>
 
           <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-14">
-            <button className="group inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold text-lg px-10 py-5 rounded-xl transition-all shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 w-full sm:w-auto">
+            <a
+              href="#contact"
+              onClick={() => setTimeout(() => window.dispatchEvent(new Event("switchToDriverTab")), 100)}
+              className="group inline-flex items-center justify-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold text-lg px-10 py-5 rounded-xl transition-all shadow-lg hover:shadow-accent/30 hover:-translate-y-0.5 w-full sm:w-auto"
+            >
               Apply to Drive
               <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </button>
+            </a>
             <button className="inline-flex items-center justify-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-manrope font-semibold text-lg px-8 py-5 rounded-xl transition-all hover:-translate-y-0.5 w-full sm:w-auto">
               Our Services
             </button>

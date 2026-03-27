@@ -62,6 +62,7 @@ export default function Header() {
             ))}
             <a
               href="#contact"
+              onClick={() => setTimeout(() => window.dispatchEvent(new Event("switchToDriverTab")), 100)}
               className="ml-3 bg-accent hover:bg-accent-hover text-white font-manrope font-semibold text-sm px-5 py-2.5 rounded-lg transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
             >
               Apply to Drive
@@ -129,7 +130,10 @@ export default function Header() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
                 className="block mt-2 bg-accent hover:bg-accent-hover text-white font-manrope font-semibold text-sm px-5 py-2.5 rounded-lg transition-colors text-center"
-                onClick={() => setMobileOpen(false)}
+                onClick={() => {
+                  setMobileOpen(false);
+                  setTimeout(() => window.dispatchEvent(new Event("switchToDriverTab")), 100);
+                }}
               >
                 Apply to Drive
               </motion.a>
