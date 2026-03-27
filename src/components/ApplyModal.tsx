@@ -11,11 +11,8 @@ const labelClass =
 
 export default function ApplyModal() {
   const [open, setOpen] = useState(false);
-  const [activeTab, setActiveTab] = useState<"shipper" | "driver">("driver");
-
   useEffect(() => {
     const handleOpen = () => {
-      setActiveTab("driver");
       setOpen(true);
     };
     window.addEventListener("openApplyModal", handleOpen);
@@ -65,34 +62,12 @@ export default function ApplyModal() {
             </button>
 
             <div className="p-6 sm:p-8">
-              {/* Tab buttons */}
-              <div className="flex gap-3 mb-6">
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("shipper")}
-                  className={`flex-1 font-manrope font-bold text-sm px-4 py-3 rounded-xl transition-all ${
-                    activeTab === "shipper"
-                      ? "bg-accent text-white shadow-md shadow-accent/25"
-                      : "bg-white text-text-dark border border-border-light hover:border-accent/30"
-                  }`}
-                >
-                  I&apos;m a Shipper
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab("driver")}
-                  className={`flex-1 font-manrope font-bold text-sm px-4 py-3 rounded-xl transition-all ${
-                    activeTab === "driver"
-                      ? "bg-accent text-white shadow-md shadow-accent/25"
-                      : "bg-white text-text-dark border border-border-light hover:border-accent/30"
-                  }`}
-                >
-                  I&apos;m a CDL Driver
-                </button>
-              </div>
+              {/* Title */}
+              <h2 className="font-manrope font-extrabold text-text-dark text-xl sm:text-2xl mb-6">
+                CDL Driver Application
+              </h2>
 
-              {/* Form content */}
-              {activeTab === "shipper" ? <ShipperForm /> : <DriverForm />}
+              <DriverForm />
             </div>
           </motion.div>
         </motion.div>
@@ -101,74 +76,6 @@ export default function ApplyModal() {
   );
 }
 
-function ShipperForm() {
-  return (
-    <form
-      action="mailto:dvservices.safety@gmail.com"
-      method="POST"
-      encType="text/plain"
-      className="space-y-5"
-    >
-      <div>
-        <label htmlFor="modal-shipper-name" className={labelClass}>
-          Name <span className="text-accent">*</span>
-        </label>
-        <input
-          type="text"
-          id="modal-shipper-name"
-          name="name"
-          required
-          className={inputClass}
-          placeholder="Your full name"
-        />
-      </div>
-      <div>
-        <label htmlFor="modal-shipper-email" className={labelClass}>
-          Email <span className="text-accent">*</span>
-        </label>
-        <input
-          type="email"
-          id="modal-shipper-email"
-          name="email"
-          required
-          className={inputClass}
-          placeholder="you@company.com"
-        />
-      </div>
-      <div>
-        <label htmlFor="modal-shipper-phone" className={labelClass}>
-          Phone
-        </label>
-        <input
-          type="tel"
-          id="modal-shipper-phone"
-          name="phone"
-          className={inputClass}
-          placeholder="(555) 000-0000"
-        />
-      </div>
-      <div>
-        <label htmlFor="modal-shipper-message" className={labelClass}>
-          Message <span className="text-accent">*</span>
-        </label>
-        <textarea
-          id="modal-shipper-message"
-          name="message"
-          required
-          rows={4}
-          className={`${inputClass} resize-none`}
-          placeholder="Tell us about your shipping needs..."
-        />
-      </div>
-      <button
-        type="submit"
-        className="w-full bg-accent hover:bg-accent-hover text-white font-manrope font-bold text-base px-6 py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
-      >
-        Send Message
-      </button>
-    </form>
-  );
-}
 
 function DriverForm() {
   return (

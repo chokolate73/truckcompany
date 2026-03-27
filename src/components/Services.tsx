@@ -167,12 +167,12 @@ export default function Services() {
                 ))}
               </div>
 
-              <a
-                href="#contact"
+              <button
+                onClick={() => window.dispatchEvent(new Event("openQuoteModal"))}
                 className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold px-8 py-3.5 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5 self-start"
               >
                 Get a Quote <ArrowRight className="w-5 h-5" />
-              </a>
+              </button>
             </div>
           </div>
         </div>

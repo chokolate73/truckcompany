@@ -3,6 +3,7 @@ import "./globals.css";
 import BackToTop from "@/components/BackToTop";
 import MobileStickyBar from "@/components/MobileStickyBar";
 import ApplyModal from "@/components/ApplyModal";
+import QuoteModal from "@/components/QuoteModal";
 
 export const metadata: Metadata = {
   title: "D&V Services Portal",
@@ -45,6 +46,7 @@ export default function RootLayout({
         <BackToTop />
         <MobileStickyBar />
         <ApplyModal />
+        <QuoteModal />
       </body>
     </html>
   );
