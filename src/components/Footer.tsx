@@ -71,9 +71,9 @@ export default function Footer() {
       className="bg-navy text-text-white-muted pt-16 pb-8"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-border-dark">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-border-dark">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <div className="flex items-center gap-2.5 mb-4">
               <div className="w-9 h-9 bg-accent rounded-lg flex items-center justify-center">
                 <Truck className="w-5 h-5 text-white" />
@@ -142,7 +142,7 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <p className="font-manrope font-bold text-white text-sm uppercase tracking-widest mb-5">
               Contact
             </p>
