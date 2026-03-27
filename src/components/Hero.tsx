@@ -98,7 +98,7 @@ export default function Hero() {
             </button>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="flex flex-wrap gap-6">
+          <motion.div variants={fadeUp} className="flex flex-col items-center lg:items-start lg:flex-row flex-wrap gap-4 lg:gap-6">
             <div className="flex items-center gap-2 text-text-white-muted">
               <Shield className="w-4 h-4 text-accent shrink-0" />
               <span className="font-inter text-sm font-medium">
