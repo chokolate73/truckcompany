@@ -110,7 +110,7 @@ export default function Services() {
 
         <div className="grid lg:grid-cols-[280px_1fr] gap-6 lg:gap-8 items-stretch">
           {/* Sidebar — horizontal on mobile, vertical on desktop */}
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-2">
+          <div className="flex lg:grid lg:grid-cols-1 gap-2 overflow-x-auto pb-2 lg:pb-0 lg:overflow-visible">
             {services.map((s, i) => {
               const SIcon = s.icon;
               const isActive = i === activeIndex;
@@ -118,7 +118,7 @@ export default function Services() {
                 <button
                   key={s.id}
                   onClick={() => setActiveIndex(i)}
-                  className={`relative flex items-center gap-3 px-4 py-3 lg:px-5 lg:py-4 rounded-xl text-left transition-all duration-300 lg:flex-1 ${
+                  className={`relative flex items-center gap-3 px-4 py-3 lg:px-5 lg:py-4 rounded-xl text-left transition-all duration-300 shrink-0 lg:shrink ${
                     isActive
                       ? "bg-[#0F1D3A] text-white shadow-lg border-l-4 border-l-accent lg:border-l-4"
                       : "bg-white text-text-dark border border-border-light shadow-sm hover:border-accent/30 hover:shadow-md"
