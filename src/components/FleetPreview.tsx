@@ -47,6 +47,41 @@ export default function FleetPreview() {
           </p>
         </AnimateOnScroll>
 
+        {/* Featured card - Heavy Haul Cargo */}
+        <AnimateOnScroll className="mb-6" variant="fade-up">
+          <div className="relative bg-[#0F1D3A] rounded-2xl overflow-hidden group">
+            <div className="grid lg:grid-cols-2 items-center">
+              <div className="p-8 lg:p-12">
+                <span className="inline-block font-inter text-xs font-semibold text-accent tracking-widest uppercase mb-3">
+                  Featured Service
+                </span>
+                <h3 className="font-manrope font-extrabold text-white text-2xl lg:text-4xl mb-3">
+                  Heavy Haul Cargo
+                </h3>
+                <p className="font-inter text-accent text-sm font-semibold mb-4">
+                  Oversized &amp; overweight loads
+                </p>
+                <p className="font-inter text-white/70 text-sm lg:text-base leading-relaxed mb-6">
+                  Specialized transport for oversized, overweight, and super-load freight. Permits, pilot cars, route surveys, and expert planning for loads that exceed standard legal dimensions and weight limits.
+                </p>
+                <button
+                  onClick={() => window.dispatchEvent(new Event("openQuoteModal"))}
+                  className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold px-6 py-3 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
+                >
+                  Get a Quote <ArrowRight className="w-5 h-5" />
+                </button>
+              </div>
+              <div className="h-64 lg:h-full lg:min-h-[320px] overflow-hidden">
+                <img
+                  src="/image/Flatbed Trailers.jpg"
+                  alt="Heavy Haul Cargo"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+            </div>
+          </div>
+        </AnimateOnScroll>
+
         <StaggerContainer
           className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6"
           staggerDelay={0.12}
