@@ -1,6 +1,6 @@
 "use client";
 
-import { Package, LayoutGrid, Thermometer, ArrowRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { AnimateOnScroll, StaggerContainer, StaggerItem } from "./AnimateOnScroll";
 
 const fleetItems = [
@@ -9,21 +9,24 @@ const fleetItems = [
     spec: "53' standard enclosed trailers",
     description:
       "The workhorse of freight transport. Fully enclosed protection for general merchandise, retail goods, and packaged freight.",
-    icon: Package,
+
+    image: "/image/Dry Van Trailers.jpg",
   },
   {
     name: "Flatbed Trailers",
     spec: "48' – 53' open deck",
     description:
       "Open-deck versatility for oversized, heavy, and irregularly shaped cargo. Steel, lumber, machinery, and construction materials.",
-    icon: LayoutGrid,
+
+    image: "/image/Flatbed Trailers.jpg",
   },
   {
     name: "Refrigerated Trailers",
     spec: "Temperature-controlled units",
     description:
       "Precision climate control for perishables, pharmaceuticals, and temperature-sensitive freight. Continuous monitoring from pickup to delivery.",
-    icon: Thermometer,
+
+    image: "/image/Refrigerated Trailers.jpg",
   },
 ];
 
@@ -49,12 +52,15 @@ export default function FleetPreview() {
           staggerDelay={0.12}
         >
           {fleetItems.map((item) => {
-            const Icon = item.icon;
             return (
               <StaggerItem key={item.name} variant="fade-up">
                 <div className="bg-white rounded-2xl border border-border-light shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 overflow-hidden group h-full">
-                  <div className="h-48 bg-[#0F1D3A] flex items-center justify-center">
-                    <Icon className="w-16 h-16 text-accent/20 group-hover:text-accent/40 transition-colors" />
+                  <div className="h-48 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                   </div>
                   <div className="p-6">
                     <h3 className="font-manrope font-bold text-text-dark text-xl mb-1">
