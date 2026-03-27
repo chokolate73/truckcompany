@@ -21,9 +21,15 @@ export default function Coverage() {
       className="relative min-h-[500px] lg:min-h-[550px] flex items-center overflow-hidden"
       style={{ backgroundColor: "#0C1A32" }}
     >
-      {/* Background map image */}
+      {/* Background map image - mobile: centered cover, desktop: right contain */}
       <div
-        className="absolute inset-0 bg-no-repeat"
+        className="absolute inset-0 bg-no-repeat md:hidden bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/images/coverage-map.jpg')",
+        }}
+      />
+      <div
+        className="absolute inset-0 bg-no-repeat hidden md:block"
         style={{
           backgroundImage: "url('/images/coverage-map.jpg')",
           backgroundPosition: "right center",
@@ -45,7 +51,7 @@ export default function Coverage() {
         className="absolute inset-0 md:hidden"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(12,26,50,0.50) 0%, rgba(12,26,50,0.85) 35%, rgba(12,26,50,0.95) 55%, rgba(12,26,50,0.95) 100%)",
+            "linear-gradient(to bottom, rgba(12,26,50,0.40) 0%, rgba(12,26,50,0.60) 25%, rgba(12,26,50,0.80) 50%, rgba(12,26,50,0.92) 70%, rgba(12,26,50,0.95) 100%)",
         }}
       />
 
