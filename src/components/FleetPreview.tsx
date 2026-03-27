@@ -73,7 +73,7 @@ export default function FleetPreview() {
               </div>
               <div className="h-64 lg:h-full lg:min-h-[320px] overflow-hidden">
                 <img
-                  src="/image/Flatbed Trailers.jpg"
+                  src="/images/Heavy Haul Cargo.jpg"
                   alt="Heavy Haul Cargo"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
