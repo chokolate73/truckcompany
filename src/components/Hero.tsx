@@ -25,12 +25,12 @@ export default function Hero() {
         style={{ backgroundImage: "url('/images/hero-truck.jpg')" }}
       />
 
-      {/* Even gradient overlay (desktop) — centered content friendly */}
+      {/* Left-to-right gradient overlay (desktop) */}
       <div
         className="absolute inset-0 hidden md:block"
         style={{
           background:
-            "linear-gradient(to bottom, rgba(15,29,58,0.85) 0%, rgba(15,29,58,0.70) 40%, rgba(15,29,58,0.65) 60%, rgba(15,29,58,0.75) 100%)",
+            "linear-gradient(to right, rgba(15,29,58,0.97) 0%, rgba(15,29,58,0.92) 20%, rgba(15,29,58,0.75) 40%, rgba(15,29,58,0.35) 60%, rgba(15,29,58,0.10) 80%, rgba(15,29,58,0.05) 100%)",
         }}
       />
 
@@ -56,9 +56,9 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-28 pb-16 lg:py-0"
+        className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 lg:py-0"
       >
-        <div className="max-w-xl lg:max-w-3xl xl:max-w-4xl mx-auto text-center">
+        <div className="max-w-xl lg:max-w-3xl xl:max-w-4xl">
           <motion.div
             variants={fadeUp}
             className="inline-flex items-center gap-2 bg-accent/15 border border-accent/30 text-accent font-inter font-semibold text-sm px-4 py-1.5 rounded-full mb-6"
@@ -77,14 +77,14 @@ export default function Hero() {
 
           <motion.p
             variants={fadeUp}
-            className="font-inter text-text-white-muted text-lg lg:text-2xl leading-relaxed mb-10 lg:mb-12 max-w-lg lg:max-w-2xl mx-auto"
+            className="font-inter text-text-white-muted text-lg lg:text-2xl leading-relaxed mb-10 lg:mb-12 max-w-lg lg:max-w-2xl"
           >
             D&V Services Inc. delivers reliable FTL, LTL, Flatbed, and
             Refrigerated shipping across the continental United States. Trusted
             since 2016.
           </motion.p>
 
-          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4 mb-14">
+          <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-14">
             <a
               href="#contact"
               onClick={() => setTimeout(() => window.dispatchEvent(new Event("switchToDriverTab")), 100)}
@@ -98,7 +98,7 @@ export default function Hero() {
             </button>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="flex flex-wrap justify-center gap-6">
+          <motion.div variants={fadeUp} className="flex flex-wrap gap-6">
             <div className="flex items-center gap-2 text-text-white-muted">
               <Shield className="w-4 h-4 text-accent shrink-0" />
               <span className="font-inter text-sm font-medium">
