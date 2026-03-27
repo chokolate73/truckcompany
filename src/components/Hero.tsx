@@ -25,7 +25,7 @@ export default function Hero() {
         style={{ backgroundImage: "url('/images/hero-truck.jpg')" }}
       />
 
-      {/* Left-to-right gradient overlay (desktop) — sharper transition */}
+      {/* Left-to-right gradient overlay (desktop) */}
       <div
         className="absolute inset-0 hidden md:block"
         style={{
@@ -56,7 +56,7 @@ export default function Hero() {
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 w-full px-6 sm:px-8 lg:px-16 xl:px-24 pt-28 pb-16 lg:py-0"
+        className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 lg:py-0"
       >
         <div className="max-w-xl lg:max-w-3xl xl:max-w-4xl">
           <motion.div
@@ -98,7 +98,7 @@ export default function Hero() {
             </button>
           </motion.div>
 
-          <motion.div variants={fadeUp} className="flex flex-wrap gap-6">
+          <motion.div variants={fadeUp} className="flex flex-col items-center lg:items-start lg:flex-row flex-wrap gap-4 lg:gap-6">
             <div className="flex items-center gap-2 text-text-white-muted">
               <Shield className="w-4 h-4 text-accent shrink-0" />
               <span className="font-inter text-sm font-medium">

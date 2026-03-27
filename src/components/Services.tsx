@@ -140,7 +140,7 @@ export default function Services() {
           {/* Right showcase panel */}
           <div
             key={service.id}
-            className="bg-white rounded-2xl border border-border-light shadow-sm overflow-hidden animate-fade-in flex flex-col"
+            className="bg-white rounded-2xl border border-border-light shadow-sm overflow-hidden animate-fade-in flex flex-col min-h-[420px]"
           >
             <div className="px-6 lg:px-8 pt-8 pb-8 flex flex-col flex-1">
               <div className="flex items-center gap-3 mb-4">
