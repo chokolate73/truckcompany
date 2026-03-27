@@ -38,7 +38,7 @@ export default function CareersPreview() {
               team that values your time, respects your hustle, and keeps you
               moving.
             </p>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap justify-center lg:justify-start gap-4">
               <a
                 href="#contact"
                 onClick={() => setTimeout(() => window.dispatchEvent(new Event("switchToDriverTab")), 100)}
