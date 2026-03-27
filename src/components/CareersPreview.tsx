@@ -39,13 +39,12 @@ export default function CareersPreview() {
               moving.
             </p>
             <div className="flex flex-wrap justify-center lg:justify-start gap-4">
-              <a
-                href="#contact"
-                onClick={() => setTimeout(() => window.dispatchEvent(new Event("switchToDriverTab")), 100)}
+              <button
+                onClick={() => window.dispatchEvent(new Event("openApplyModal"))}
                 className="inline-flex items-center gap-2 bg-accent hover:bg-accent-hover text-white font-manrope font-bold px-8 py-4 rounded-xl transition-all hover:shadow-lg hover:shadow-accent/25 hover:-translate-y-0.5"
               >
                 Apply to Drive <ArrowRight className="w-5 h-5" />
-              </a>
+              </button>
               <a
                 href="/careers"
                 className="inline-flex items-center gap-2 bg-white/10 hover:bg-white/20 border border-white/30 text-white font-manrope font-semibold px-8 py-4 rounded-xl transition-all hover:-translate-y-0.5"
