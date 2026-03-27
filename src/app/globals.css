@@ -49,6 +49,13 @@ body {
   overflow-x: hidden;
 }
 
+/* Prevent iOS auto-zoom on input focus */
+@media screen and (max-width: 1023px) {
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+}
+
 /* Floating particle keyframes for hero */
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); opacity: 0.3; }
