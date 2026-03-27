@@ -119,14 +119,15 @@ export default function Services() {
                   </div>
                   <div className="min-w-0">
                     <p
-                      className={`font-manrope font-bold text-base whitespace-nowrap ${
+                      className={`font-manrope font-bold text-sm lg:text-base truncate ${
                         isActive ? "text-white" : "text-text-dark"
                       }`}
                     >
-                      {s.name}
+                      <span className="lg:hidden">{s.shortName}</span>
+                      <span className="hidden lg:inline">{s.name}</span>
                     </p>
                     <p
-                      className={`text-xs ${isActive ? "text-white/60" : "text-text-muted"}`}
+                      className={`text-xs hidden lg:block ${isActive ? "text-white/60" : "text-text-muted"}`}
                     >
                       {s.shortName}
                     </p>
