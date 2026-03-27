@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import BackToTop from "@/components/BackToTop";
+import MobileStickyBar from "@/components/MobileStickyBar";
 
 export const metadata: Metadata = {
   title: "D&V Services Portal",
@@ -29,9 +30,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-inter">
+      <body className="font-inter pb-20 lg:pb-0">
         {children}
         <BackToTop />
+        <MobileStickyBar />
       </body>
     </html>
   );
