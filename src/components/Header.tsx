@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Truck, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const navLinks = [
   { href: "#about", label: "About" },
@@ -36,9 +36,6 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           <a href="#" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-accent rounded-lg flex items-center justify-center group-hover:animate-pulse-glow transition-all">
-              <Truck className="w-5 h-5 text-white" />
-            </div>
             <div className="flex flex-col leading-none">
               <span className="font-manrope font-[800] text-white text-lg tracking-tight">
                 D&V Services

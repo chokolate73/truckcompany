@@ -1,6 +1,6 @@
 "use client";
 
-import { Truck } from "lucide-react";
+
 import { motion } from "framer-motion";
 
 const quickLinks = [
@@ -74,18 +74,13 @@ export default function Footer() {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-border-dark">
           {/* Brand */}
           <div className="col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2.5 mb-4">
-              <div className="w-9 h-9 bg-accent rounded-lg flex items-center justify-center">
-                <Truck className="w-5 h-5 text-white" />
-              </div>
-              <div>
-                <p className="font-manrope font-extrabold text-white text-base">
-                  D&V Services Inc.
-                </p>
-                <p className="font-inter text-text-white-muted text-xs">
-                  Trucking &amp; Freight
-                </p>
-              </div>
+            <div className="mb-4">
+              <p className="font-manrope font-extrabold text-white text-base">
+                D&V Services Inc.
+              </p>
+              <p className="font-inter text-text-white-muted text-xs">
+                Trucking &amp; Freight
+              </p>
             </div>
             <p className="font-inter text-text-white-muted text-sm leading-relaxed mb-5">
               Reliable freight solutions across all 48 contiguous US states.
