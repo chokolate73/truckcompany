@@ -169,7 +169,7 @@ export default function Footer() {
             &copy; 2026 D&V Services Inc. All rights reserved.
           </p>
           <p className="font-inter text-white/40 text-sm">
-            MC# &middot; DOT# &middot; FMCSA Compliant
+            MC# 727247 &middot; DOT# 2083596 &middot; FMCSA Compliant
           </p>
         </div>
       </div>

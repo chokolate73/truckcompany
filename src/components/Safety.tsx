@@ -44,7 +44,7 @@ export default function Safety() {
                 USDOT Number
               </p>
               <p className="font-manrope font-extrabold text-white text-2xl lg:text-3xl">
-                XXXXXXX
+                2083596
               </p>
             </div>
 
@@ -53,7 +53,7 @@ export default function Safety() {
                 MC Number
               </p>
               <p className="font-manrope font-extrabold text-white text-2xl lg:text-3xl">
-                XXXXXXX
+                727247
               </p>
             </div>
 
