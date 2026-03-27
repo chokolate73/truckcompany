@@ -26,7 +26,7 @@ export default function Coverage() {
         className="absolute inset-0 bg-no-repeat"
         style={{
           backgroundImage: "url('/images/coverage-map.jpg')",
-          backgroundPosition: "center center",
+          backgroundPosition: "right center",
           backgroundSize: "contain",
         }}
       />
