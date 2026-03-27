@@ -113,7 +113,7 @@ function DriverForm() {
       action="mailto:dvservices.safety@gmail.com"
       method="POST"
       encType="text/plain"
-      className="space-y-5"
+      className="space-y-4"
     >
       {/* Row: Full Name + Phone */}
       <div className="grid sm:grid-cols-2 gap-4">
@@ -206,7 +206,7 @@ function DriverForm() {
       {/* Endorsements */}
       <div>
         <p className={labelClass}>Endorsements</p>
-        <div className="grid grid-cols-2 gap-3 mt-1">
+        <div className="flex flex-wrap gap-x-5 gap-y-2 mt-1">
           {["Hazmat", "Tanker", "Doubles/Triples", "TWIC"].map((e) => (
             <label
               key={e}
@@ -288,8 +288,8 @@ function DriverForm() {
         <textarea
           id="driver-notes"
           name="notes"
-          rows={3}
-          className={`${inputClass} resize-none`}
+          rows={2}
+          className={`${inputClass} resize-none max-h-[80px]`}
           placeholder="Anything else we should know..."
         />
       </div>
@@ -337,7 +337,7 @@ export default function Contact() {
           >
             {contactCards.map((card) => (
               <StaggerItem key={card.label} variant="fade-up">
-                <div className="bg-white rounded-xl px-5 py-4 border border-border-light hover:border-accent/30 hover:shadow-md transition-all flex items-center gap-4">
+                <div className="bg-white rounded-xl px-5 py-4 border border-border-light shadow-sm hover:border-accent/30 hover:shadow-md transition-all flex items-center gap-4">
                   <div className="w-11 h-11 bg-accent-soft rounded-xl flex items-center justify-center shrink-0">
                     <card.icon
                       className="w-5 h-5 text-accent"
