@@ -41,7 +41,7 @@ export default function Header() {
                 D&V Services
               </span>
               <span className="font-inter text-text-white-muted text-xs">
-                Inc. — Trucking &amp; Freight
+                Inc. - Trucking &amp; Freight
               </span>
             </div>
           </a>

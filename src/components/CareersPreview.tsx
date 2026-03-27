@@ -81,7 +81,7 @@ export default function CareersPreview() {
                 clean, and dispatch actually picks up the phone.&rdquo;
               </p>
               <p className="font-manrope font-bold text-accent text-sm">
-                — CDL Driver, D&V Services
+                - CDL Driver, D&V Services
               </p>
             </div>
           </AnimateOnScroll>

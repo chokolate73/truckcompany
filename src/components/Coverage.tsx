@@ -44,7 +44,7 @@ export default function Coverage() {
             <p className="font-inter text-text-muted text-base lg:text-xl leading-relaxed mb-8">
               With our headquarters in Gurnee, Illinois, we service the entire
               continental United States. Whether it&apos;s a local Midwest run
-              or a coast-to-coast haul — we&apos;re there.
+              or a coast-to-coast haul - we&apos;re there.
             </p>
 
             {/* Region tags with checkmarks */}

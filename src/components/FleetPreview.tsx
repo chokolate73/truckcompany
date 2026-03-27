@@ -42,7 +42,7 @@ export default function FleetPreview() {
             Built for Every Load
           </h2>
           <p className="font-inter text-text-muted text-base lg:text-lg mt-4 max-w-2xl mx-auto">
-            Our fleet is maintained to the highest standards — modern equipment
+            Our fleet is maintained to the highest standards - modern equipment
             you can count on for every shipment.
           </p>
         </AnimateOnScroll>

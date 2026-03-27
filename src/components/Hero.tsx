@@ -64,7 +64,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 bg-accent/15 border border-accent/30 text-accent font-inter font-semibold text-sm px-4 py-1.5 rounded-full mb-6"
           >
             <MapPin className="w-3.5 h-3.5" />
-            Gurnee, Illinois — Serving All 48 States
+            Gurnee, Illinois - Serving All 48 States
           </motion.div>
 
           <motion.h1
