@@ -224,60 +224,25 @@ function DriverForm() {
         </div>
       </div>
 
-      {/* Row: Preferred Freight Type + Availability */}
-      <div className="grid sm:grid-cols-2 gap-4">
-        <div>
-          <label htmlFor="freight-type" className={labelClass}>
-            Preferred Freight Type
-          </label>
-          <select
-            id="freight-type"
-            name="preferred_freight"
-            className={inputClass}
-            defaultValue=""
-          >
-            <option value="" disabled>
-              Select freight type
-            </option>
-            <option value="Dry Van">Dry Van</option>
-            <option value="Flatbed">Flatbed</option>
-            <option value="Refrigerated">Refrigerated</option>
-            <option value="No Preference">No Preference</option>
-          </select>
-        </div>
-        <div>
-          <label htmlFor="availability" className={labelClass}>
-            Availability
-          </label>
-          <select
-            id="availability"
-            name="availability"
-            className={inputClass}
-            defaultValue=""
-          >
-            <option value="" disabled>
-              Select availability
-            </option>
-            <option value="Immediately">Immediately</option>
-            <option value="Within 2 weeks">Within 2 weeks</option>
-            <option value="Within 1 month">Within 1 month</option>
-            <option value="Other">Other</option>
-          </select>
-        </div>
-      </div>
-
-      {/* Resume Upload */}
+      {/* Preferred Freight Type */}
       <div>
-        <label htmlFor="resume" className={labelClass}>
-          Resume Upload <span className="text-text-muted text-xs">(optional)</span>
+        <label htmlFor="freight-type" className={labelClass}>
+          Preferred Freight Type
         </label>
-        <input
-          type="file"
-          id="resume"
-          name="resume"
-          accept=".pdf,.doc,.docx"
-          className="w-full font-inter text-sm text-text-dark file:mr-3 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-medium file:bg-accent-soft file:text-accent hover:file:bg-accent/20 file:cursor-pointer file:transition-colors"
-        />
+        <select
+          id="freight-type"
+          name="preferred_freight"
+          className={inputClass}
+          defaultValue=""
+        >
+          <option value="" disabled>
+            Select freight type
+          </option>
+          <option value="Dry Van">Dry Van</option>
+          <option value="Flatbed">Flatbed</option>
+          <option value="Refrigerated">Refrigerated</option>
+          <option value="No Preference">No Preference</option>
+        </select>
       </div>
 
       {/* Additional Notes */}

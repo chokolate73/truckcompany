@@ -27,10 +27,10 @@ export default function Header() {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`lg:fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`lg:fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-navy lg:bg-transparent ${
         scrolled
-          ? "bg-navy/95 backdrop-blur-md shadow-lg shadow-black/10"
-          : "bg-transparent"
+          ? "lg:bg-navy/95 lg:backdrop-blur-md lg:shadow-lg lg:shadow-black/10"
+          : ""
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
